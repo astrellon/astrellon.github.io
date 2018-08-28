@@ -1,1 +1,94 @@
-Test page
+<html>
+
+<head>
+<title>Alan Lawrey</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  background-color: #222;
+  color: #efefef;
+  text-shadow: 0 0 5px black;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  margin: 0 30px;
+  padding: 22px 0;
+  border-bottom: 2px solid #333;
+}
+footer {
+  color: #444;
+  margin: 0 30px;
+  padding: 22px 0;
+  border-top: 2px solid #333;
+}
+
+a {
+  color: #6699ee;
+}
+a:visited {
+  color: #aa99dd;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px 40px;
+  font-size: 125%;
+  flex: auto;
+}
+.heading {
+  font-size: 200%;
+  display: inline-block;
+  line-height: 128px;
+  vertical-align: top;
+  margin-right: 20px;
+}
+.photo {
+  width: 128px;
+  height: 128px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  box-shadow: 0 0 10px black;
+}
+</style>
+</head>
+
+<body>
+  <header>
+    <span class="heading">Alan Lawrey</span>
+    <img class="photo" src="./alanlawrey.newbest.jpg" alt="A picture of my face."/>
+  </header>
+  <article class="container">
+    <p>
+      I'm a software developer from Melbourne Australia. I've previously worked at <a href="https://www.migenius.com/">migenius</a> and <a href="https://rome2rio.com">Rome2rio</a>.
+    </p>
+    <p>
+      Things I'm generally good at and enjoy doing:
+      <ul>
+        <li>Creating web applications with an emphasis on single page applications. Primarily built using anything from vanilla JS to TypeScript with a UI framework and a builder such as webpack.</li>
+        <li>Stateless backend web servers for web application.</li>
+        <li>Real time web servers for games.</li>
+        <li>Creating cross platform games. <a href="https://astrellon.itch.io/">I have a small itch.io page.</a></li>
+        <li>Using Linux as my daily driver.</li>
+      </ul>
+    </p>
+  </article>
+  <footer>
+    Alan Lawrey 2018
+  </footer>
+</body>
+
+</html>
