@@ -71,6 +71,33 @@ a:visited {
 #contact-via-the-internet:after {
   content: '@';
 }
+.project__title {
+  font-size: 140%;
+  font-weight: 700;
+  margin: 20px 0;
+}
+.project__period {
+  display: inline-block;
+  color: #999;
+  font-size: 60%;
+  font-weight: 400;
+}
+.project__desc {
+  flex: 1.5;
+}
+.project__pic {
+  flex: 1;
+  margin-left: 12px;
+}
+.project__pic img {
+  width: 100%;
+}
+.project__contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap;
+}
 
 @media only screen and (max-width: 360px) {
   .container {
@@ -84,6 +111,14 @@ a:visited {
     width: 96px;
     height: 96px;
     box-shadow: none;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .project__contents {
+    flex-flow: column;
+  }
+  .project__pic {
+    flex: 1;
   }
 }
 </style>
@@ -119,7 +154,7 @@ a:visited {
       <p>
         Things I'm generally good at and enjoy doing:
         <ul>
-          <li>Creating web applications with an emphasis on single page applications. Primarily built using anything from vanilla JS to TypeScript with a UI framework and a builder such as webpack.</li>
+          <li>Creating web applications with an emphasis on single page applications. Primarily built using anything from vanilla JS to TypeScript with a UI framework and a builder.</li>
           <li>Creating custom content tools to improve handling content.</li>
           <li>Stateless backend web servers for web application.</li>
           <li>Real time web servers for games.</li>
@@ -132,21 +167,50 @@ a:visited {
       <p>
         I generally have an interest in games, interesting software problems, being a bit creative. 
       </p>
-      <p>
-          I'm generally interested in travel. I've been to Europe, Japan, Singapore, Malaysia and New Zealand. I hope to revisit these places and visit more soon.
-      </p>
     </article>
     <article>
-      <h2>Projects</h2>
+      <h2>Previous Work</h2>
       <section class="project">
-        <h3>Rome2rio</h3>
+        <div class="project__title">Rome2rio <span class="project__period">2014 - 2018</span></div>
+        <div class="project__contents">
+          <span class="project__desc"> 
+            Rome2rio is a travel search website used for finding and comparing different routes from anywhere in the world. It specialised
+            in ground transport as routing flight paths is a generally solved problem. 
+            <ul>
+              <li>I worked on adding schedule information and the ability to buy tickets directly through Rome2rio for UK trains (as shown in the screenshot).</li>
+              <li>I worked on their internal tools for modifying their data through a web UI (not pictured).</li>
+              <li>I expanded upon and improved the infrastructure of their tooling.</li>
+              <li>For two years I also mentored someone which resulted in them being able to shift from a non-dev role into a junior software dev.</li>
+            </ul>
+          </span>
+          <aside class="project__pic">
+            <a href="./rome2riotickets.png" target="_blank"><img src="./rome2riotickets.png" alt="An example of buying a train ticket in the UK directly with Rome2rio" /></a>
+          </aside>
+        </div>
       </section>
       <section class="project">
-        <h3>migenius and mental images</h3>
+        <div class="project__title">migenius and mental images <span class="project__period">2007 - 2014</span></div>
+        <div class="project__contents">
+          <span class="project__desc">
+            mental images are a company that specialises in photographic rendering using ray and path tracing software.
+            After 3 years the Melbourne office split off to form the company migenius which continued to do the same work and allowed for working on stand alone products.
+            Bloom Unit was their first product and combined the ease of using SketchUp's 3d editing with real time photographic images.
+            I worked on:
+            <ul>
+              <li>The interface between SketchUp (ruby) and Bloom Unit (C++) for keeping the 3d scene in sync.</li>
+              <li>The UI (Internet Explorer 6) for adjusting the render settings and configuring the materials.</li>
+              <li>The next integration of Bloom Unit with Autodesk Revit (C#) to achieve a similar outcome to the SketchUp integration.</li>
+              <li>Other smaller projects for various clients such as Obayashi Corporation, <a href="http://www3d1.takemotokk.co.jp/takemoto/?lang=en">Takemoto 3d Visualiser</a>, <a href="https://www.christ.de/">Christ Jewellery</a></li>
+            </ul>
+          </span>
+          <aside class="project__pic">
+            <a href="./bloomunit.jpg" target="_blank"><img src="./bloomunit_small.jpg" alt=""/></a>
+          </aside>
+        </div>
       </section>
-      <section class="project">
-        <h3>Github</h3>
-      </section>
+    </article>
+    <article>
+      <h2>Personal Projects</h2>
     </article>
   </main>
   <footer>
