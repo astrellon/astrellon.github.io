@@ -42,15 +42,6 @@ footer {
   border-top: 2px solid #333;
   text-shadow: 0 2px 5px #000;
 }
-img {
-  box-shadow: 0 2px 10px #000;
-  transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
-}
-img:hover {
-  box-shadow: 0 4px 40px #111;
-  transform: translateY(-2px);
-}
-
 a {
   color: #6699ee;
   white-space: pre;
@@ -72,6 +63,15 @@ a:visited:hover {
   font-size: 125%;
   flex: auto;
 }
+.container img {
+  box-shadow: 0 2px 10px #000;
+  transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+.container img:hover {
+  box-shadow: 0 4px 40px #111;
+  transform: translateY(-2px);
+}
+
 .heading {
   font-size: 200%;
   font-weight: 700;
@@ -80,17 +80,36 @@ a:visited:hover {
   vertical-align: top;
   margin: 0;
 }
-.photo {
+.photo-frame {
+  perspective: 600px;
   width: 128px;
   height: 128px;
+  display: block;
+}
+.photo {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.photo-frame:hover .photo {
+  transform: rotateY(180deg);
+}
+.photo>img {
+  width: 100%;
+  height: 100%;
   border: 1px solid #333;
   border-radius: 50%;
-  background: url('./alanlawrey.jpg');
-  background-size: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  backface-visibility: hidden;
   box-shadow: 0 2px 10px #000;
+  border-radius: 50%;
 }
-.photo:hover {
-  background-image: url('./alanlawrey.newbest.jpg');
+.photo__back {
+  transform: rotateY(180deg);
 }
 
 #contact-via-the-internet:after {
@@ -139,6 +158,10 @@ a:visited:hover {
     font-size: 75%;
   }
 
+  header {
+    min-height: 138px;
+  }
+
   .container {
     padding: 5px 10px;
     margin: 0 10px;
@@ -147,10 +170,9 @@ a:visited:hover {
     line-height: 96px;
     font-size: 150%;
   }
-  .photo {
+  .photo-frame {
     width: 96px;
     height: 96px;
-    box-shadow: none;
   }
 }
 @media only screen and (max-width: 960px) {
@@ -184,7 +206,12 @@ a:visited:hover {
 <body>
   <header>
     <h1 class="heading">Alan Lawrey</h1>
-    <aside class="photo"/>
+    <aside class="photo-frame">
+      <div class="photo">
+        <img class="photo__front" src="./alanlawrey.jpg" alt="A photo of my face at Osaka Castle."/>
+        <img class="photo__back" src="./alanlawrey.newbest.jpg" alt="Another photo of my face at the Sapporo Snow Festival."/>
+      </div>
+    </aside>
   </header>
   <main class="container">
     <article>
