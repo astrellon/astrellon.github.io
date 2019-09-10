@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 <meta charset="utf-8">
@@ -153,6 +153,13 @@ a:visited:hover {
   flex-flow: wrap;
 }
 
+.code {
+  background-color: #333;
+  padding: 6px;
+  box-shadow: 0 2px 10px #000;
+  border: 1px solid black;
+}
+
 @media only screen and (max-width: 360px) {
   pre {
     font-size: 75%;
@@ -219,7 +226,7 @@ a:visited:hover {
       <section>
         <p>
           I'm a software developer from Melbourne Australia.
-          I've previously worked at <a href="https://www.migenius.com/">migenius</a> and <a href="https://rome2rio.com">Rome2rio</a>.
+          I've previously worked at <a href="https://www.migenius.com/">migenius</a>, <a href="https://rome2rio.com">Rome2rio</a> and <a href="https://metrotrains.com.au">Metro Trains Melbourne</a>.
         </p>
         <p>
           You can contact me via <a href="mailto:alan.lawrey@gmail.com">email</a> or find me on <a href="https://twitter.com/Alan_Lawrey">Twitter</a> or <a href="https://www.linkedin.com/in/alan-lawrey-b7509b21/">LinkedIn</a>.
@@ -251,7 +258,7 @@ a:visited:hover {
               This work combined hardware installed in the field (created by my co-worker) and a server with a front end (created by me).
             </p>
             <p>
-              The hardware was made up of an industrial PC with a USB oscilliscope and 4G modem.
+              The hardware was made up of an industrial PC with a USB oscilloscope and 4G modem.
             </p>
             <p>
               I worked on:
@@ -265,9 +272,9 @@ a:visited:hover {
             </p>
           </section>
           <aside class="project__pic">
-            <a href="./mtmGraphs.png" target="_blank"><img src="./mtmGraphs_small.jpg" alt="An example of live data from field units being displayed on a web UI." /></a>
-            <a href="./mtmDataLookup.png" target="_blank"><img src="./mtmDataLookup_small.jpg" alt="An example of the data lookup UI for retrieving old data." /></a>
-            <a href="./mtmDataLookup2.jpg" target="_blank"><img src="./mtmDataLookup2_small.jpg" alt="An example of old data that has ben looked up." /></a>
+            <a href="./mtmGraphs.png" target="_blank"><img src="./mtmGraphs_small.jpg" loading="lazy" alt="An example of live data from field units being displayed on a web UI." /></a>
+            <a href="./mtmDataLookup.png" target="_blank"><img src="./mtmDataLookup_small.jpg" loading="lazy" alt="An example of the data lookup UI for retrieving old data." /></a>
+            <a href="./mtmDataLookup2.jpg" target="_blank"><img src="./mtmDataLookup2_small.jpg" loading="lazy" alt="An example of old data that has ben looked up." /></a>
           </aside>
         </div>
       </section>
@@ -290,8 +297,8 @@ a:visited:hover {
             </p>
           </section>
           <aside class="project__pic">
-            <a href="./rome2rioTickets.png" target="_blank"><img src="./rome2rioTickets_small.png" alt="An example of buying a train ticket in the UK directly with Rome2rio" /></a>
-            <a href="./rome2rioSchedules.png" target="_blank"><img src="./rome2rioSchedules.png" alt="An example of a train timetable in Melbourne." /></a>
+            <a href="./rome2rioTickets.png" target="_blank"><img src="./rome2rioTickets_small.png" loading="lazy" alt="An example of buying a train ticket in the UK directly with Rome2rio" /></a>
+            <a href="./rome2rioSchedules.png" target="_blank"><img src="./rome2rioSchedules.png" loading="lazy" alt="An example of a train timetable in Melbourne." /></a>
           </aside>
         </div>
       </section>
@@ -320,9 +327,9 @@ a:visited:hover {
             </p>
           </section>
           <aside class="project__pic">
-            <a href="./bloomunit.jpg" target="_blank"><img src="./bloomunit_small.jpg" alt="A screenshot of SketchUp with Bloom Unit running."/></a>
-            <a href="./takemoto.jpg" target="_blank"><img src="./takemoto_small.jpg" alt="A screenshot of Takemoto's 3d Visualizer being used."/></a>
-            <a href="./christRingConfigurator.jpg" target="_blank"><img src="./christRingConfigurator_small.jpg" alt="A screenshot of Christ Ring Configurator being used."/></a>
+            <a href="./bloomunit.jpg" target="_blank"><img src="./bloomunit_small.jpg" loading="lazy" alt="A screenshot of SketchUp with Bloom Unit running."/></a>
+            <a href="./takemoto.jpg" target="_blank"><img src="./takemoto_small.jpg" loading="lazy" alt="A screenshot of Takemoto's 3d Visualizer being used."/></a>
+            <a href="./christRingConfigurator.jpg" target="_blank"><img src="./christRingConfigurator_small.jpg" loading="lazy" alt="A screenshot of Christ Ring Configurator being used."/></a>
           </aside>
         </div>
       </section>
@@ -339,7 +346,7 @@ a:visited:hover {
             <p>
               Main features:
               <ul>
-                <li>Shoot canonballs to break blocks, but don't let them hit you.</li>
+                <li>Shoot cannonballs to break blocks, but don't let them hit you.</li>
                 <li>Stores high score locally.</li>
                 <li>Optional Slack support for posting scores.</li>
                 <li>Cross platform for Linux, OSX and Windows.</li>
@@ -347,7 +354,7 @@ a:visited:hover {
             </p>
           </section>
           <aside class="project__pic">
-            <a href="./pirating.jpg" target="_blank"><img src="./pirating_small.jpg" alt="A screenshot of a pirate themed block break game."/></a>
+            <a href="./pirating.jpg" target="_blank"><img src="./pirating_small.jpg" loading="lazy" alt="A screenshot of a pirate themed block break game."/></a>
           </aside>
         </div>
       </section>
@@ -366,12 +373,12 @@ a:visited:hover {
                 <li>A virtual file system the supports mounting different types of file systems.</li>
                 <li>A RAMFS for virtual files (such as /dev and /proc)</li>
                 <li>A persistent file system for long term storage.</li>
-                <li>A Fuse implementation that allows for mounting the persistent harddrives and modifing them outside of the VM.</li>
+                <li>A Fuse implementation that allows for mounting the persistent hard drives and modifying them outside of the VM.</li>
               </ul>
             </p>
           </section>
           <aside class="project__pic">
-            <pre>
+            <pre class="code">
 [ SUCCESS ] Setup VFS
 [ SUCCESS ] Created root user
 [ SUCCESS ] Created kernel process
@@ -411,7 +418,7 @@ Ending process: lua: 4
             </p>
           </section>
           <aside class="project__pic">
-            <a href="./scalingOctoDubstep.png" target="_blank"><img src="./scalingOctoDubstep_small.jpg" alt="A screenshot of the ScalingOctoDubstep UI in Unity."/></a>
+            <a href="./scalingOctoDubstep.png" target="_blank"><img src="./scalingOctoDubstep_small.jpg" loading="lazy" alt="A screenshot of the ScalingOctoDubstep UI in Unity."/></a>
           </aside>
         </div>
       </section>
@@ -433,7 +440,7 @@ Ending process: lua: 4
             </p>
           </section>
           <aside class="project__pic">
-            <a href="./mmVoxels.png" target="_blank"><img src="./mmVoxels_small.png" alt="A screenshot of the Voxel Engine UI in Unity."/></a>
+            <a href="./mmVoxels.png" target="_blank"><img src="./mmVoxels_small.png" loading="lazy" alt="A screenshot of the Voxel Engine UI in Unity."/></a>
           </aside>
         </div>
       </section>
@@ -442,7 +449,7 @@ Ending process: lua: 4
         <div class="project__contents">
           <section class="project__desc">
             <p>
-              A topdown 2D RPG game engine written in C++ built using minimal dependancies for the purpose of learning.
+              A topdown 2D RPG game engine written in C++ built using minimal dependencies for the purpose of learning.
             </p>
             <p>
               This is a fairly old project now, but it does represent a lot of learning in terms of C++, integrating a scripting language, handling modding, dealing with complex UI and handling an audio system.
@@ -454,7 +461,7 @@ Ending process: lua: 4
                 <li>Sound system that supports streaming OGG and WAV files.</li>
                 <li>Lua Bindings for controlling just about every aspect of the game. From how a new game is created and loaded to how a door should behave when interacted with.</li>
                 <li>Maps are created through Lua and has a mechanism for determining if the map is being played new or loaded from disk, allowing for map scripts to upgrade old save files.</li>
-                <li>A dialogue system based on The Elder Scrolls: Morrowind with topics, keywords and actions binded to those keywords.</li>
+                <li>A dialogue system based on The Elder Scrolls: Morrowind with topics, keywords and actions bound to those keywords.</li>
                 <li>HTML documentation taken from the C++ comments using a Python script.</li>
                 <li>In game text uses a simplistic CSS and HTML system for rich text.</li>
                 <li>An in game map editor for creating new levels.</li>
@@ -462,8 +469,8 @@ Ending process: lua: 4
             </p>
           </section>
           <aside class="project__pic">
-            <a href="./rouge.png" target="_blank"><img src="./rouge.png" alt="A screenshot of the RPG game engine."/></a>
-            <a href="./rougeMapEditor.png" target="_blank"><img src="./rougeMapEditor.png" alt="A screenshot of the in game map editor."/></a>
+            <a href="./rouge.png" target="_blank"><img src="./rouge.png" loading="lazy" alt="A screenshot of the RPG game engine."/></a>
+            <a href="./rougeMapEditor.png" target="_blank"><img src="./rougeMapEditor.png" loading="lazy" alt="A screenshot of the in game map editor."/></a>
           </aside>
         </div>
       </section>
