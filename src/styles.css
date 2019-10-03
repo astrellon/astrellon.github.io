@@ -120,6 +120,7 @@ h1,h2 {
 .header-container {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 2.5rem;
 }
 
 .heading {
