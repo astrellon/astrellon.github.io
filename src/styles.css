@@ -81,7 +81,7 @@ h1,h2 {
 .background-zigzag-flip {
   background: url("./images/dark-zigzag-flip.png") repeat-x;
   background-size: 11px;
-  background-position-x: 5px;
+  background-position-x: 5.5px;
   height: 16px;
   display: block;
   position: absolute;
