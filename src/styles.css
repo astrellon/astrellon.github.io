@@ -69,6 +69,7 @@ h1,h2 {
 
 .background-zigzag {
   background: url("./images/dark-zigzag.png") repeat-x;
+  background-size: 10px;
   height: 16px;
   display: block;
   position: absolute;
@@ -79,13 +80,14 @@ h1,h2 {
 
 .background-zigzag-flip {
   background: url("./images/dark-zigzag-flip.png") repeat-x;
+  background-size: 10px;
+  background-position-x: 5px;
   height: 16px;
   display: block;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-position-x: 5px;
 }
 
 .separator {
