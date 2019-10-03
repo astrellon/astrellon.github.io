@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run preproc && npm run minify && npm run copy && npm run cleanup",
-    "copy": "cp src/images/*.jpg src/images/*.png src/images/*.ico docs/",
-    "cleanup": "rm docs/preMiniIndex.html",
-    "preproc": "mkdir docs && c-preprocessor src/index.html docs/preMiniIndex.html",
-    "minify": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o docs/index.html docs/preMiniIndex.html"
+    "build": "npm run preproc && npm run minify",
+    "preproc": "mkdir -p build && c-preprocessor src/index.html build/preMiniIndex.html",
+    "minify": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o index.html build/preMiniIndex.html"
   },
   "repository": {
     "type": "git",
