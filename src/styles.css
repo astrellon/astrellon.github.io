@@ -69,7 +69,7 @@ h1,h2 {
 
 .background-zigzag {
   background: url("./images/dark-zigzag.png") repeat-x;
-  background-size: 10px;
+  background-size: 11px;
   height: 16px;
   display: block;
   position: absolute;
@@ -80,7 +80,7 @@ h1,h2 {
 
 .background-zigzag-flip {
   background: url("./images/dark-zigzag-flip.png") repeat-x;
-  background-size: 10px;
+  background-size: 11px;
   background-position-x: 5px;
   height: 16px;
   display: block;
