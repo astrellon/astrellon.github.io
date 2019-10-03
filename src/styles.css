@@ -33,6 +33,7 @@ header {
 }
 footer {
   color: #444;
+  text-shadow: 0px 2px 2px rgba(0,0,0,0.2);
 }
 a {
   color: #6699ee;
@@ -88,6 +89,7 @@ h1,h2 {
   bottom: 0;
   left: 0;
   right: 0;
+  margin-bottom: -1px;
 }
 
 .separator {
@@ -97,7 +99,7 @@ h1,h2 {
 
 .small-separator {
   display: block;
-  height: 1.1rem;
+  height: 1.5rem;
   margin: 1rem 0;
 }
 
