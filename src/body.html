@@ -1,19 +1,28 @@
-<header>
-  <h1 class="heading">Alan Lawrey</h1>
-  <aside class="photo-frame">
-    <div class="photo">
-      <img class="photo__front" src="./images/alanlawrey.jpg" alt="A photo of my face at Osaka Castle."/>
-      <img class="photo__back" src="./images/alanlawrey.newbest.jpg" alt="Another photo of my face at the Sapporo Snow Festival."/>
-    </div>
-  </aside>
+<header class="background">
+  <div class="container header-container">
+    <aside class="photo-frame">
+      <div class="photo">
+        <img class="photo__front" src="./images/alanlawrey.jpg" alt="A photo of my face at Osaka Castle." />
+        <img class="photo__back" src="./images/alanlawrey.newbest.jpg"
+          alt="Another photo of my face at the Sapporo Snow Festival." />
+      </div>
+    </aside>
+    <h1 class="heading">Alan Lawrey</h1>
+  </div>
+  <div class="background-zigzag-flip"></div>
 </header>
 
-<main class="container">
+<main>
   #include "overview.html"
+  #include "separator.html"
   #include "previousWork.html"
+  #include "separator.html"
   #include "personalWork.html"
 </main>
 
-<footer>
-  Alan Lawrey 2019
+<footer class="background">
+  <div class="background-zigzag"></div>
+  <div class="container">
+    Alan Lawrey 2019
+  </div>
 </footer>

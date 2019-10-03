@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "watch": {
+    "build": "src/*.*"
+  },
   "scripts": {
     "build": "npm run preproc && npm run minify",
     "preproc": "mkdir -p build && c-preprocessor src/index.html build/preMiniIndex.html",
-    "minify": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o index.html build/preMiniIndex.html"
+    "minify": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o index.html build/preMiniIndex.html",
+    "watch": "npm-watch"
   },
   "repository": {
     "type": "git",
@@ -18,10 +22,10 @@
     "url": "https://github.com/astrellon/astrellon.github.io/issues"
   },
   "homepage": "https://github.com/astrellon/astrellon.github.io#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "c-preprocessor": "^0.2.12",
     "html-minifier": "^4.0.0",
-    "c-preprocessor": "^0.2.12"
+    "npm-watch": "^0.6.0"
   }
 }

@@ -1,163 +1,185 @@
-<article>
-  <h2>Personal Projects</h2>
-  <section>
-    <div class="project__title">Pirate blockbreak clone <a class="project__link"
-        href="https://astrellon.itch.io/pirating">itch.io Link</a></div>
-    <div class="project__contents">
-      <section class="project__desc">
-        <p>
-          A one week project to build something from scratch and release it somewhere. Fairly basic blockbreak clone
-          with a bit of a twist.
-        </p>
-        <p>
-          Main features:
-          <ul>
-            <li>Shoot cannonballs to break blocks, but don't let them hit you.</li>
-            <li>Stores high score locally.</li>
-            <li>Optional Slack support for posting scores.</li>
-            <li>Cross platform for Linux, OSX and Windows.</li>
-          </ul>
-        </p>
-      </section>
-      <aside class="project__pic">
-        <a href="./pirating.jpg" target="_blank"><img src="./images/pirating_small.jpg" loading="lazy"
-            alt="A screenshot of a pirate themed block break game." /></a>
-      </aside>
-    </div>
-  </section>
-  <section>
-    <div class="project__title">LOSS (Lua Operating SyStem) <a class="project__link"
-        href="https://github.com/astrellon/loss">Github Link</a></div>
-    <div class="project__contents">
-      <section class="project__desc">
-        <p>
-          A project to create an operating system that's built around using Lua with the intention of being light
-          weight.
-          The main use case was for a game where you may want many simple in-game operating systems that look like a
-          *NIX shell but without actually running a VM.
-        </p>
-        <p>
-          Main features:
-          <ul>
-            <li>A modified version of the Lua VM that supports running multiple Lua States in the same thread using
-              Boost Coroutines</li>
-            <li>A virtual file system the supports mounting different types of file systems.</li>
-            <li>A RAMFS for virtual files (such as /dev and /proc)</li>
-            <li>A persistent file system for long term storage.</li>
-            <li>A Fuse implementation that allows for mounting the persistent hard drives and modifying them outside of
-              the VM.</li>
-          </ul>
-        </p>
-      </section>
-      <aside class="project__pic">
-        <pre class="code">
-[ SUCCESS ] Setup VFS
-[ SUCCESS ] Created root user
-[ SUCCESS ] Created kernel process
-[ SUCCESS ] Created proc filesystem
-Booting system from init.d
+<article class="image-container">
+  <div class="container">
+    <h2>Personal Projects</h2>
+    <section>
+      <div class="project__title">Pirate blockbreak clone <a class="project__link"
+          href="https://astrellon.itch.io/pirating">itch.io Link</a></div>
+      <div class="project__contents">
+        <section class="project__desc">
+          <p>
+            A one week project to build something from scratch and release it somewhere. Fairly basic blockbreak clone
+            with a bit of a twist.
+          </p>
+          <p>
+            Main features:
+            <ul>
+              <li>Shoot cannonballs to break blocks, but don't let them hit you.</li>
+              <li>Stores high score locally.</li>
+              <li>Optional Slack support for posting scores.</li>
+              <li>Cross platform for Linux, OSX and Windows.</li>
+            </ul>
+          </p>
+        </section>
+        <aside class="project__pic">
+          <a href="./pirating.jpg" target="_blank"><img src="./images/pirating_small.jpg" loading="lazy"
+              alt="A screenshot of a pirate themed block break game." /></a>
+        </aside>
+      </div>
+    </section>
+  </div>
 
-Lua worked
-Ending process: lua: 4
-Reading /greetings.txt
-Line! 1: Hello There
-Line! 2: How are you?
-Line! 3:
-Line! 4: What is up?
+#include "smallSeparator.html"
 
-Lua worked
-Ending process: lua: 4
-          </pre>
-        An example of starting the VM with an init.d file that just prints some text.
-      </aside>
-    </div>
-  </section>
-  <section>
-    <div class="project__title">LOSS v0 <a class="project__link"
-        href="https://github.com/astrellon/ScalingOctoDubstep">Github Link</a></div>
-    <div class="project__contents">
-      <section class="project__desc">
-        <p>
-          An earlier attempt at creating an OS for use in a game, specifically for a space game.
-          This was a relatively naive approach that used NLua which is a C# implementation of Lua for use in Unity.
-        </p>
-        <p>
-          Main features:
-          <ul>
-            <li>Basic shell for running Lua.</li>
-            <li>A simple VT100 terminal emulator that used built in Unity components for text rendering.</li>
-            <li>A very simple file system, however it did not support mounting.</li>
-          </ul>
-        </p>
-      </section>
-      <aside class="project__pic">
-        <a href="./scalingOctoDubstep.png" target="_blank"><img src="./images/scalingOctoDubstep_small.jpg" loading="lazy"
-            alt="A screenshot of the ScalingOctoDubstep UI in Unity." /></a>
-      </aside>
-    </div>
-  </section>
-  <section>
-    <div class="project__title">Voxel Engine <a class="project__link" href="https://github.com/astrellon/mm">Github
-        Link</a></div>
-    <div class="project__contents">
-      <section class="project__desc">
-        <p>
-          A small voxel engine aim at being able to create and edit levels entirely within Unity.
-          It performed well enough for the scale of the levels I wanted to created, however getting the editor tools to
-          behave the way I wanted proved to be the most tricky aspect.
-        </p>
-        <p>
-          Main features:
-          <ul>
-            <li>Chunked editing and loading. Maps are stored as individual binary files which is optimised for updating
-              chunks during editing.</li>
-            <li>Multiple different shapes beyond a cube such as ramps and different corners to allow for smoother
-              terrain.</li>
-            <li>Unity editing support for creating levels without needing additional tools.</li>
-          </ul>
-        </p>
-      </section>
-      <aside class="project__pic">
-        <a href="./mmVoxels.png" target="_blank"><img src="./images/mmVoxels_small.png" loading="lazy"
-            alt="A screenshot of the Voxel Engine UI in Unity." /></a>
-      </aside>
-    </div>
-  </section>
-  <section>
-    <div class="project__title">RPG Game <a class="project__link" href="https://github.com/astrellon/Rouge">Github
-        Link</a></div>
-    <div class="project__contents">
-      <section class="project__desc">
-        <p>
-          A topdown 2D RPG game engine written in C++ built using minimal dependencies for the purpose of learning.
-        </p>
-        <p>
-          This is a fairly old project now, but it does represent a lot of learning in terms of C++, integrating a
-          scripting language, handling modding, dealing with complex UI and handling an audio system.
-        </p>
-        <p>
-          Main features:
-          <ul>
-            <li>Tile based 2D graphics with a tile overlapping system for blending between tiles.</li>
-            <li>Sound system that supports streaming OGG and WAV files.</li>
-            <li>Lua Bindings for controlling just about every aspect of the game. From how a new game is created and
-              loaded to how a door should behave when interacted with.</li>
-            <li>Maps are created through Lua and has a mechanism for determining if the map is being played new or
-              loaded from disk, allowing for map scripts to upgrade old save files.</li>
-            <li>A dialogue system based on The Elder Scrolls: Morrowind with topics, keywords and actions bound to those
-              keywords.</li>
-            <li>HTML documentation taken from the C++ comments using a Python script.</li>
-            <li>In game text uses a simplistic CSS and HTML system for rich text.</li>
-            <li>An in game map editor for creating new levels.</li>
-          </ul>
-        </p>
-      </section>
-      <aside class="project__pic">
-        <a href="./rouge.png" target="_blank"><img src="./images/rouge.png" loading="lazy"
-            alt="A screenshot of the RPG game engine." /></a>
-        <a href="./rougeMapEditor.png" target="_blank"><img src="./images/rougeMapEditor.png" loading="lazy"
-            alt="A screenshot of the in game map editor." /></a>
-      </aside>
-    </div>
-  </section>
+  <div class="container">
+    <section>
+      <div class="project__title">LOSS (Lua Operating SyStem) <a class="project__link"
+          href="https://github.com/astrellon/loss">Github Link</a></div>
+      <div class="project__contents">
+        <section class="project__desc">
+          <p>
+            A project to create an operating system that's built around using Lua with the intention of being light
+            weight.
+            The main use case was for a game where you may want many simple in-game operating systems that look like a
+            *NIX shell but without actually running a VM.
+          </p>
+          <p>
+            Main features:
+            <ul>
+              <li>A modified version of the Lua VM that supports running multiple Lua States in the same thread using
+                Boost Coroutines</li>
+              <li>A virtual file system the supports mounting different types of file systems.</li>
+              <li>A RAMFS for virtual files (such as /dev and /proc)</li>
+              <li>A persistent file system for long term storage.</li>
+              <li>A Fuse implementation that allows for mounting the persistent hard drives and modifying them outside of
+                the VM.</li>
+            </ul>
+          </p>
+        </section>
+        <aside class="project__pic">
+          <pre class="code">
+  [ SUCCESS ] Setup VFS
+  [ SUCCESS ] Created root user
+  [ SUCCESS ] Created kernel process
+  [ SUCCESS ] Created proc filesystem
+  Booting system from init.d
+
+  Lua worked
+  Ending process: lua: 4
+  Reading /greetings.txt
+  Line! 1: Hello There
+  Line! 2: How are you?
+  Line! 3:
+  Line! 4: What is up?
+
+  Lua worked
+  Ending process: lua: 4
+            </pre>
+          An example of starting the VM with an init.d file that just prints some text.
+        </aside>
+      </div>
+    </section>
+  </div>
+
+#include "smallSeparator.html"
+
+  <div class="container">
+    <section>
+      <div class="project__title">LOSS v0 <a class="project__link"
+          href="https://github.com/astrellon/ScalingOctoDubstep">Github Link</a></div>
+      <div class="project__contents">
+        <section class="project__desc">
+          <p>
+            An earlier attempt at creating an OS for use in a game, specifically for a space game.
+            This was a relatively naive approach that used NLua which is a C# implementation of Lua for use in Unity.
+          </p>
+          <p>
+            Main features:
+            <ul>
+              <li>Basic shell for running Lua.</li>
+              <li>A simple VT100 terminal emulator that used built in Unity components for text rendering.</li>
+              <li>A very simple file system, however it did not support mounting.</li>
+            </ul>
+          </p>
+        </section>
+        <aside class="project__pic">
+          <a href="./scalingOctoDubstep.png" target="_blank"><img src="./images/scalingOctoDubstep_small.jpg" loading="lazy"
+              alt="A screenshot of the ScalingOctoDubstep UI in Unity." /></a>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+#include "smallSeparator.html"
+
+  <div class="container">
+    <section>
+      <div class="project__title">Voxel Engine <a class="project__link" href="https://github.com/astrellon/mm">Github
+          Link</a></div>
+      <div class="project__contents">
+        <section class="project__desc">
+          <p>
+            A small voxel engine aim at being able to create and edit levels entirely within Unity.
+            It performed well enough for the scale of the levels I wanted to created, however getting the editor tools to
+            behave the way I wanted proved to be the most tricky aspect.
+          </p>
+          <p>
+            Main features:
+            <ul>
+              <li>Chunked editing and loading. Maps are stored as individual binary files which is optimised for updating
+                chunks during editing.</li>
+              <li>Multiple different shapes beyond a cube such as ramps and different corners to allow for smoother
+                terrain.</li>
+              <li>Unity editing support for creating levels without needing additional tools.</li>
+            </ul>
+          </p>
+        </section>
+        <aside class="project__pic">
+          <a href="./mmVoxels.png" target="_blank"><img src="./images/mmVoxels_small.png" loading="lazy"
+              alt="A screenshot of the Voxel Engine UI in Unity." /></a>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+#include "smallSeparator.html"
+
+  <div class="container">
+    <section>
+      <div class="project__title">RPG Game <a class="project__link" href="https://github.com/astrellon/Rouge">Github
+          Link</a></div>
+      <div class="project__contents">
+        <section class="project__desc">
+          <p>
+            A topdown 2D RPG game engine written in C++ built using minimal dependencies for the purpose of learning.
+          </p>
+          <p>
+            This is a fairly old project now, but it does represent a lot of learning in terms of C++, integrating a
+            scripting language, handling modding, dealing with complex UI and handling an audio system.
+          </p>
+          <p>
+            Main features:
+            <ul>
+              <li>Tile based 2D graphics with a tile overlapping system for blending between tiles.</li>
+              <li>Sound system that supports streaming OGG and WAV files.</li>
+              <li>Lua Bindings for controlling just about every aspect of the game. From how a new game is created and
+                loaded to how a door should behave when interacted with.</li>
+              <li>Maps are created through Lua and has a mechanism for determining if the map is being played new or
+                loaded from disk, allowing for map scripts to upgrade old save files.</li>
+              <li>A dialogue system based on The Elder Scrolls: Morrowind with topics, keywords and actions bound to those
+                keywords.</li>
+              <li>HTML documentation taken from the C++ comments using a Python script.</li>
+              <li>In game text uses a simplistic CSS and HTML system for rich text.</li>
+              <li>An in game map editor for creating new levels.</li>
+            </ul>
+          </p>
+        </section>
+        <aside class="project__pic">
+          <a href="./rouge.png" target="_blank"><img src="./images/rouge.png" loading="lazy"
+              alt="A screenshot of the RPG game engine." /></a>
+          <a href="./rougeMapEditor.png" target="_blank"><img src="./images/rougeMapEditor.png" loading="lazy"
+              alt="A screenshot of the in game map editor." /></a>
+        </aside>
+      </div>
+    </section>
+  </div>
 </article>
