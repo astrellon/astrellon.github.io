@@ -8,8 +8,9 @@
   },
   "scripts": {
     "scss": "node-sass build/styles.scss build/styles.css",
+    "tsc": "tsc build/scripts.ts --out build/scripts.js",
     "prebuild": "mkdir -p build && cp src/* build/",
-    "build": "npm run prebuild && npm run scss && npm run preproc && npm run minify",
+    "build": "npm run prebuild && npm run tsc && npm run scss && npm run preproc && npm run minify",
     "preproc": "c-preprocessor build/index.html build/preMiniIndex.html",
     "minify": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o index.html build/preMiniIndex.html",
     "watch": "npm-watch"
@@ -29,6 +30,7 @@
     "c-preprocessor": "^0.2.12",
     "html-minifier": "^4.0.0",
     "node-sass": "^4.12.0",
-    "npm-watch": "^0.6.0"
+    "npm-watch": "^0.6.0",
+    "typescript": "^3.6.3"
   }
 }
