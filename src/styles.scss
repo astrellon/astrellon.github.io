@@ -2,19 +2,6 @@
   box-sizing: border-box;
 }
 
-.light-theme {
-  background-color: #f0f0f0;
-  color: #222;
-
-  &.zigzag {
-    background-image: url("./images/zigzag.png");
-
-    &-flip {
-      background-image: url("./images/zigzag-flip.png");
-    }
-  }
-}
-
 html {
   background-color: #202020;
   color: #eee;
@@ -60,7 +47,7 @@ a {
   height: 100%;
   width: 100%;
 
-  background: url("./images/gradientWide.png");
+  background: url("./images/gradientWide.png"), white;
   background-size: 10000px 100%;
   animation: background-scrolling 60s linear infinite;
 
@@ -74,26 +61,22 @@ h1,h2 {
 }
 
 .zigzag {
-  background: url("./images/dark-zigzag.png") repeat-x;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAABACAYAAABcIPRGAAAAAXNSR0IArs4c6QAAATtJREFUaIHtk1sOgyAQRYUduAOX1+6oqzRxBfTLBimX1zCgyT1/DgLnmNZs2+aWB2NnC0hhwGwYMBsGzIYBs2FAjuM4VM9XDTjlNSPUAkJprQiVACSrEdE9IJTc9/2dWpfSNQDJa0Z0C8h9ea2ILgE5eTTvESEOyMkbYz6pdWmEKKBUXjOiOaD2y2tFNAXUyqN5j4jqgFZ5tC6NqAqQyqP3JBHFAb3k0futEUUBveXRvpaIbICWPNpfG5EM0JZH59REwIBR8ui80ohowGh5dG5JxF/ALHl0fi7CphZHy6N7UhE2NoxtGiWP7kMR1n9AL4+WR/fGIuxd5dH9oZ9NLc6WP0lF2Ngwtmk2KMKs6+ruLu/jnHv5z+ZvcGP5E9/58h94gvyyXD1tbPgEfr7hT4gQQgghhBBCCCFkCF8qw0VJg13K8wAAAABJRU5ErkJggg==") repeat-x;
   background-size: 12px;
   height: 16px;
   display: block;
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
 
-  &-flip {
-    background: url("./images/dark-zigzag-flip.png") repeat-x;
-    background-size: 12px;
-    background-position-x: 6px;
-    height: 16px;
-    display: block;
-    position: absolute;
+  &.top {
+    top: 0;
+  }
+
+  &.bottom {
     bottom: 0;
-    left: 0;
-    right: 0;
     margin-bottom: -1px;
+    transform: scaleY(-1);
   }
 }
 
