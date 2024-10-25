@@ -8,11 +8,11 @@
   },
   "scripts": {
     "scss": "sass build/styles.scss build/styles.css",
-    "tsc": "tsc build/scripts.ts --out build/scripts.js",
+    "tsc": "tsc build/scripts.ts",
     "prebuild": "rm -rf build && mkdir -p build && cp src/* build/",
-    "build": "npm run prebuild && npm run tsc && npm run scss && npm run preproc && npm run minify",
-    "preproc": "c-preprocessor build/index.html build/preMiniIndex.html",
-    "minify": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o index.html build/preMiniIndex.html",
+    "build": "npm run prebuild && npm run scss && npm run preproc",
+    "preproc": "c-preprocessor build/scripts.js build/scripts-built.js && c-preprocessor build/index.html build/preMiniIndex.html",
+    "minify": "minify build/preMiniIndex.html > index.html",
     "watch": "npm-watch"
   },
   "repository": {
@@ -27,9 +27,8 @@
   "homepage": "https://github.com/astrellon/astrellon.github.io#readme",
   "devDependencies": {
     "c-preprocessor": "^0.2.12",
-    "html-minifier": "^4.0.0",
+    "minify": "^11.4.1",
     "npm-watch": "^0.6.0",
-    "sass": "^1.80.3",
-    "typescript": "^3.9.10"
+    "sass": "^1.80.3"
   }
 }

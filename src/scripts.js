@@ -1,3 +1,5 @@
+#include "ripples.js"
+
 // Add tooltips from alt attributes on images.
 if (typeof (document.querySelectorAll) === 'function')
 {
@@ -16,6 +18,12 @@ if (typeof (document.querySelectorAll) === 'function')
     const offset = -Math.random() * 60 + 's';
     for (let i = 0; i < backgrounds.length; i++)
     {
-        (backgrounds[i] as HTMLElement).style.animationDelay = offset;
+        (backgrounds[i]).style.animationDelay = offset;
     }
+}
+
+const canvas = document.getElementById('ripplesCanvas');
+if (canvas != null)
+{
+    const ripples = new Ripples(canvas, 512);
 }
