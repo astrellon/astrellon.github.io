@@ -338,7 +338,7 @@ export default class Ripples
             console.error('Failed to load background image', url, e);
             this.setTransparentTexture();
         }
-        image.src = url;
+        image.src = "data:" + url;
     }
 
     private setupPointerEvents()

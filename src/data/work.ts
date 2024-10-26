@@ -21,12 +21,7 @@ export const Work: PostState[] = [
                     "fullSizeUrl": "/assets/threeDiversMock.jpg" as Url
                 }],
                 "picturePosition": "left"
-            }
-        ]
-    },
-    {
-        "pageId": "work" as PageId,
-        "contents": [
+            },
             {
                 "text": [
                     "[post-header](Metro Trains Melbourne | SEP 2018 - NOV 2020)",
@@ -52,12 +47,7 @@ export const Work: PostState[] = [
                     "url": "/assets/mtmDataLookup2_small.jpg" as Url,
                     "caption": "An example of old data that has been looked up."
                 }]
-            }
-        ]
-    },
-    {
-        "pageId": "work" as PageId,
-        "contents": [
+            },
             {
                 "text": [
                     "[post-header](Rome2rio | OCT 2014 - JUL 2018)",
@@ -78,12 +68,7 @@ export const Work: PostState[] = [
                     "caption": "An example of a train timetable in Melbourne."
                 }],
                 "picturePosition": "left"
-            }
-        ]
-    },
-    {
-        "pageId": "work" as PageId,
-        "contents": [
+            },
             {
                 "text": [
                     "[post-header](miGenius and mental images | JAN 2008 - OCT - 2014)",

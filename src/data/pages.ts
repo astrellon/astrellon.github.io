@@ -3,7 +3,7 @@ import { PageId, PageState } from "../store"
 export const Pages: PageState[] = [
     {
         "id": "about" as PageId,
-        "title": "About Me",
+        "title": "About",
         "defaultPage": true
     },
     {

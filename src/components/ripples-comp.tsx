@@ -77,12 +77,10 @@ export default class RipplesComp extends ClassComponent<Props>
             if (nowDarkTheme !== this.darkTheme)
             {
                 this.darkTheme = nowDarkTheme;
-                if (firstBackgroundCheck && typeof (window) !== 'undefined')
+                if (typeof (window) !== 'undefined')
                 {
                     const backgroundImageStyle = window.getComputedStyle(document.body).backgroundImage;
                     const backgroundUrl = backgroundImageStyle.substring(backgroundImageStyle.indexOf('/', 14), backgroundImageStyle.lastIndexOf('"'));
-
-                    firstBackgroundCheck = false;
 
                     if (backgroundUrl)
                     {
