@@ -2,6 +2,7 @@ import "../normalize.css";
 import "../styles.scss";
 import "../grid.scss";
 import "./app.scss";
+import "./ripples-comp.scss";
 
 import { FunctionalComponent, vdom } from "simple-tsx-vdom";
 import { PageState, setSelectedPageId, State, store, WindowHistory } from "../store";
@@ -56,11 +57,11 @@ export const App: FunctionalComponent<Props> = (props: Props) =>
                 onPageChange={onPageChange} /> }
         </main>
 
-        { ripplesEnabled &&
+        {/* { ripplesEnabled &&
         <RipplesComp
             darkTheme={darkTheme}
             backgrounds={backgrounds}
-            scrollElement={isMobile ? postsContainerEl : htmlEl} /> }
+            scrollElement={isMobile ? postsContainerEl : htmlEl} /> } */}
     </div>
 }
 

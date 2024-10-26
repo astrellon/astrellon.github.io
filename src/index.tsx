@@ -3,6 +3,7 @@ import { setSelectedPageId, WindowHistory, State, store, setIsMobile } from "./s
 import { App } from "./components/app";
 import { setInitialState } from './client-store';
 import { DarkBackgroundUrl, LightBackgroundUrl } from './backgrounds';
+import WebGLFluidEnhanced from './fluid';
 
 (globalThis as any).__store = store;
 
@@ -55,3 +56,21 @@ window.addEventListener('popstate', (event) =>
         store.execute(setSelectedPageId(stateData.pageId));
     }
 });
+
+const fluid = new WebGLFluidEnhanced(document.getElementById('renderSurface') as HTMLElement);
+fluid.setConfig({
+    colorPalette: ['#8946b5', '#526977', '#a89870'],
+    hover: true,
+    shading: true,
+    splatRadius: 0.2,
+    velocityDissipation: 1.2,
+    densityDissipation: 1.2,
+    pressureIterations: 10,
+    bloom: true,
+    curl: 10,
+    backgroundColor: '#e0e0e0',
+    simResolution: 64,
+    dyeResolution: 512,
+    splatForce: 3000
+});
+fluid.start();
