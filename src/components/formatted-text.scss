@@ -1,0 +1,18 @@
+.post-header {
+    margin: 0.75rem 0;
+    >h3 {
+        margin: 0;
+        display: inline-block;
+    }
+
+    >small {
+        opacity: 0.75;
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 480px) {
+        >h3 {
+            display: block;
+        }
+    }
+}

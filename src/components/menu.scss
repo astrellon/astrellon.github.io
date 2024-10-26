@@ -1,0 +1,41 @@
+@use "../mixins" as *;
+
+.menu {
+    position: relative;
+
+    &__dropdown {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        right: 2px;
+    }
+
+    &__row {
+        margin-top: 2rem;
+
+        opacity: 0;
+        transform: translateX(-2rem);
+
+        transition-property: transform, opacity;
+        @include cubic-transition();
+
+        &.disabled {
+            pointer-events: none;
+        }
+    }
+
+    >.circle-button {
+        transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    }
+
+    &.active {
+        .menu__row {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        >.circle-button {
+            transform: rotateZ(150deg);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@use '../mixins' as *;
+
+.posts {
+    position: absolute;
+    transition-property: transform, opacity;
+    @include cubic-transition();
+
+    transform: translateX(-3rem);
+    opacity: 0;
+    max-width: 96rem;
+
+    &__content {
+        >h2 {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &.mounted {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    &.unmounted {
+        transform: translateX(3rem);
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    @media screen and (max-width: 480px) {
+        max-width: unset;
+        left: 1rem;
+        right: 1rem;
+    }
+}

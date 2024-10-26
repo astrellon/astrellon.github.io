@@ -1,0 +1,22 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.navbar {
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 2rem;
+
+    &__page-buttons {
+        margin-left: auto;
+        margin-right: 1.5rem;
+    }
+    &__theme-button {
+        min-width: 9rem;
+    }
+
+    .menu {
+        margin-left: 6rem;
+    }
+}

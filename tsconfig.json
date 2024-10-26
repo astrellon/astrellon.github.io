@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "outDir": "./dist/",
+        "noImplicitAny": false,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "module": "commonjs",
+        "target": "ES2019",
+        "noEmitOnError": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "jsxFactory": "vdom",
+        "jsx": "preserve"
+    }
+}

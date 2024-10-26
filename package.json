@@ -2,33 +2,21 @@
   "name": "astrellon.github.io",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "watch": {
-    "build": "src/*.*"
-  },
   "scripts": {
-    "scss": "sass build/styles.scss build/styles.css",
-    "tsc": "tsc build/scripts.ts",
-    "prebuild": "rm -rf build && mkdir -p build && cp src/* build/",
-    "build": "npm run prebuild && npm run scss && npm run preproc",
-    "preproc": "c-preprocessor build/scripts.js build/scripts-built.js && c-preprocessor build/index.html build/preMiniIndex.html",
-    "minify": "minify build/preMiniIndex.html > index.html",
-    "watch": "npm-watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/astrellon/astrellon.github.io.git"
+    "start": "parcel --no-cache ./src/index.html",
+    "build": "parcel build --dist-dir ./docs ./src/index.html && cp -r ./src/assets ./docs"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/astrellon/astrellon.github.io/issues"
-  },
-  "homepage": "https://github.com/astrellon/astrellon.github.io#readme",
   "devDependencies": {
-    "c-preprocessor": "^0.2.12",
-    "minify": "^11.4.1",
-    "npm-watch": "^0.6.0",
-    "sass": "^1.80.3"
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0",
+    "sass": "^1.80.4",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "simple-data-store": "^3.3.1",
+    "simple-signals": "^1.0.1",
+    "simple-tsx-vdom": "^0.7.0"
   }
 }

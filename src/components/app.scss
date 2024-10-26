@@ -1,0 +1,25 @@
+.app-wrapper {
+    height: 100%;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__spacer {
+        flex: 1 0 auto;
+    }
+
+    @media screen and (max-width: 480px) {
+        &__post-container {
+            position: relative;
+            min-height: #{calc(100% - 12rem)};
+            overflow: scroll;
+
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+        }
+    }
+}
+

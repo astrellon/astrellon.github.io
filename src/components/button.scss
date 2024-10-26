@@ -1,0 +1,44 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* BUTTONS */
+.button {
+    padding: 1rem 2.5rem;
+    color: $colour-darkGrey;
+    background-color: $colour-lightGrey;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-size: $font-size;
+    line-height: 1;
+    text-align: center;
+    @include default-box-shadow();
+
+    @include cubic-transition();
+    transition-property: opacity, background, color;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &.is--active {
+        background-color: darken($colour-lightGrey, 10%);
+    }
+}
+
+.dark-theme {
+    .button {
+        background-color: $colour-darkGrey;
+        color: $colour-lightGrey;
+
+        &.is--active {
+            background-color: lighten($colour-darkGrey, 10%);
+        }
+    }
+}

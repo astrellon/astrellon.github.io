@@ -1,0 +1,15 @@
+@use '../mixins' as *;
+
+.post-link {
+    display: inline-block;
+
+    .icon {
+        opacity: 0.5;
+        transition-property: opacity;
+        @include cubic-transition();
+
+        &:hover {
+            opacity: 1.0;
+        }
+    }
+}

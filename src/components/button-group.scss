@@ -1,0 +1,20 @@
+@use '../mixins' as *;
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    @include default-box-shadow();
+
+    >.button {
+        box-shadow: none;
+    }
+
+    :not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    :not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}

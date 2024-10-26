@@ -1,0 +1,20 @@
+@use './variables';
+
+.container {
+    max-width: variables.$grid-maxWidth;
+    margin: 0 auto;
+    width: 96%;
+    padding: 0 calc(variables.$grid-gutter / 2);
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin-left: calc(variables.$grid-gutter / -2);
+    margin-right: calc(variables.$grid-gutter / -2);
+
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+}

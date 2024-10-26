@@ -1,0 +1,42 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.circle-button {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: block;
+    cursor: pointer;
+
+    &.disabled {
+        cursor: default;
+    }
+
+    &:hover {
+        .circle-button__text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .circle-button__icon {
+            opacity: 1;
+        }
+    }
+
+    &__text {
+        position: absolute;
+        right: 40px;
+        text-align: right;
+        line-height: 32px;
+        opacity: 0;
+        width: 100px;
+        transform: translateX(-2rem);
+
+        @include cubic-transition();
+        transition-property: transform, opacity;
+    }
+
+    &__icon {
+        opacity: 0.75;
+    }
+}

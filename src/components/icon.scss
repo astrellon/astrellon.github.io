@@ -1,0 +1,66 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+
+    stroke-linecap: square;
+    stroke-width: 24;
+
+    transition-property: fill, stroke, opacity;
+    @include cubic-transition;
+
+    &.has-fill {
+        fill: $colour-darkGrey;
+    }
+
+    &.has-stroke {
+        stroke: $colour-darkGrey;
+    }
+
+    &.theme-icon,
+    &.fill-on-hover {
+        fill: transparent;
+    }
+
+    &:hover.theme-icon,
+    &.active.fill-on-hover,
+    &:hover.fill-on-hover {
+        fill: $colour-darkGrey;
+    }
+}
+
+.disabled-icon {
+    stroke-dasharray: 750;
+    stroke-dashoffset: 750;
+
+    transition-property: stroke-dashoffset;
+    @include cubic-transition;
+
+    &.mounted {
+        stroke-dashoffset: 0;
+    }
+    &.unmounted {
+        stroke-dashoffset: -750;
+    }
+}
+
+.dark-theme {
+    .icon {
+        &.has-fill {
+            fill: $colour-lightGrey;
+        }
+
+        &.has-stroke {
+            stroke: $colour-lightGrey;
+        }
+
+        &:hover.theme-icon,
+        &.active.fill-on-hover,
+        &:hover.fill-on-hover {
+            fill: $colour-lightGrey;
+        }
+    }
+}
