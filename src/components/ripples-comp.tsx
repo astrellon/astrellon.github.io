@@ -3,6 +3,7 @@ import { ClassComponent, FinishUnmountHandler, vdom } from "simple-tsx-vdom";
 import Ripples from "../ripples/ripples";
 import { Backgrounds, store } from "../store";
 import { hoverOutElement, hoverOverElement } from "./signals";
+import { LightBackgroundImage, DarkBackgroundImage } from "../backgrounds";
 import './ripples-comp.scss';
 
 interface Props
@@ -77,22 +78,33 @@ export default class RipplesComp extends ClassComponent<Props>
             if (nowDarkTheme !== this.darkTheme)
             {
                 this.darkTheme = nowDarkTheme;
-                if (typeof (window) !== 'undefined')
+
+                const dark = this.darkTheme ? LightBackgroundImage : DarkBackgroundImage;
+                const light = this.darkTheme ? DarkBackgroundImage : LightBackgroundImage;
+
+                light.onLoaded((image1) =>
                 {
-                    const backgroundImageStyle = window.getComputedStyle(document.body).backgroundImage;
-                    const backgroundUrl = backgroundImageStyle.substring(backgroundImageStyle.indexOf('/', 14), backgroundImageStyle.lastIndexOf('"'));
-
-                    if (backgroundUrl)
+                    dark.onLoaded((image2) =>
                     {
-                        this.ripple.loadBackground(backgroundUrl);
-                        return;
-                    }
-                }
+                        this.ripple.loadBackground(image1, image2);
+                    })
+                })
+                // if (typeof (window) !== 'undefined')
+                // {
+                //     const backgroundImageStyle = window.getComputedStyle(document.body).backgroundImage;
+                //     const backgroundUrl = backgroundImageStyle.substring(backgroundImageStyle.indexOf('/', 14), backgroundImageStyle.lastIndexOf('"'));
 
-                const backgrounds = this.props.backgrounds;
+                //     if (backgroundUrl)
+                //     {
+                //         this.ripple.loadBackground(backgroundUrl);
+                //         return;
+                //     }
+                // }
 
-                const url = randomPick(nowDarkTheme ? backgrounds.dark : backgrounds.light);
-                this.ripple.loadBackground(url);
+                // const backgrounds = this.props.backgrounds;
+
+                // const url = randomPick(nowDarkTheme ? backgrounds.dark : backgrounds.light);
+                // this.ripple.loadBackground(url);
             }
         }
     }

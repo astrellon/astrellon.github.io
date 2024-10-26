@@ -2,6 +2,7 @@ import { vdom, render } from "simple-tsx-vdom";
 import { setSelectedPageId, WindowHistory, State, store, setIsMobile } from "./store";
 import { App } from "./components/app";
 import { setInitialState } from './client-store';
+import { DarkBackgroundUrl, LightBackgroundUrl } from './backgrounds';
 
 (globalThis as any).__store = store;
 
@@ -15,6 +16,7 @@ if (initialState != undefined)
 function renderApp(state: State)
 {
     document.body.classList.toggle('dark-theme', state.darkTheme);
+    document.body.style.backgroundImage = state.darkTheme ? DarkBackgroundUrl : LightBackgroundUrl;
     render(<App state={state} />, document.body);
 }
 // Render the app on start

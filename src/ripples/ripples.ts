@@ -189,6 +189,7 @@ export default class Ripples
     private readonly canvas: HTMLCanvasElement;
     private readonly gl: WebGLRenderingContext;
     private readonly textureDelta: Float32Array;
+    private timestep: number = 1 / 60.0;
     private readonly resolution: number;
     private readonly config: WebGlConfig | null;
     private readonly quad: WebGLBuffer;
@@ -201,13 +202,15 @@ export default class Ripples
     private dropBoxProgram: BaseWebGlProgram | null = null;
     private updateProgram: BaseWebGlProgram | null = null;
     private renderProgram: RenderWebGlProgram | null = null;
-    private backgroundTexture: WebGLTexture | null = null;
+    private backgroundTexture1: WebGLTexture | null = null;
+    private backgroundTexture2: WebGLTexture | null = null;
     private backgroundSize: number = 1;
 
-    private dropRadius: number = 12;
+    private dropRadius: number = 24;
     private perturbance: number = 0.03;
     private bufferWriteIndex: number = 0;
 	private bufferReadIndex: number = 1;
+    private performanceTime: number = 0;
 
     constructor (canvas: HTMLCanvasElement, resolution: number = 256)
     {
@@ -281,6 +284,8 @@ export default class Ripples
         gl.clearColor(0, 0, 0, 0);
         gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
+        this.performanceTime = performance.now();
+
         // Init animation
         const step = () =>
         {
@@ -300,7 +305,7 @@ export default class Ripples
 		this.render();
     }
 
-    public loadBackground(url: string)
+    public loadBackground(image1: HTMLImageElement, image2: HTMLImageElement)
     {
         const gl = this.gl;
 
@@ -314,31 +319,15 @@ export default class Ripples
         const srcFormat = gl.RGBA;
         const srcType = gl.UNSIGNED_BYTE;
 
-        const image = new Image();
-        image.onload = () =>
-        {
-            gl.bindTexture(gl.TEXTURE_2D, this.backgroundTexture);
-            gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
-                srcFormat, srcType, image);
+        gl.bindTexture(gl.TEXTURE_2D, this.backgroundTexture1);
+        gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
+            srcFormat, srcType, image1);
 
-            this.backgroundSize = image.width;
+        this.backgroundSize = image1.width;
 
-            // WebGL1 has different requirements for power of 2 images
-            // vs non power of 2 images so check if the image is a
-            // power of 2 in both dimensions.
-            if (!isPowerOf2(image.width) || !isPowerOf2(image.height))
-            {
-                // No, it's not a power of 2. Turn off mips and set
-                // wrapping to clamp to edge
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-            }
-        };
-        image.onerror = (e) =>
-        {
-            console.error('Failed to load background image', url, e);
-            this.setTransparentTexture();
-        }
-        image.src = "data:" + url;
+        gl.bindTexture(gl.TEXTURE_2D, this.backgroundTexture2);
+        gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
+            srcFormat, srcType, image2);
     }
 
     private setupPointerEvents()
@@ -519,6 +508,7 @@ void main() {
 
 uniform sampler2D texture;
 uniform vec2 delta;
+uniform float dt;
 
 varying vec2 coord;
 
@@ -537,11 +527,12 @@ void main() {
 
     info.g += average - info.r;
     info.g *= 0.998;
-    info.r += info.g;
+    info.r += info.g * (dt * 12.0);
 
     gl_FragColor = info;
 }`);
         this.gl.uniform2fv(this.updateProgram.locations.delta, this.textureDelta);
+        this.gl.uniform1f(this.updateProgram.locations.dt, this.timestep);
 
         this.renderProgram = createProgram(RenderWebGlProgram, this.gl,
 // Vertex shader
@@ -567,7 +558,8 @@ void main() {
 // Fragment shader
 `precision highp float;
 
-uniform sampler2D samplerBackground;
+uniform sampler2D samplerBackground1;
+uniform sampler2D samplerBackground2;
 uniform sampler2D samplerRipples;
 uniform vec2 delta;
 uniform float perturbance;
@@ -583,24 +575,35 @@ void main() {
     vec3 dy = vec3(0.0, heightY - height, delta.y);
     vec2 offset = -normalize(cross(dy, dx)).xz;
     float specularPow = pow(max(0.0, dot(offset, normalize(vec2(-0.6, 1.0)))), 2.0);
-    float specular = smoothstep(0.1, 0.2, specularPow);
+    float specular = smoothstep(0.0, 0.1, specularPow);
 
     float specMult = specular * 0.1 + 1.0;
-    vec4 backgroundColour = texture2D(samplerBackground, backgroundCoord + offset * perturbance);
-    gl_FragColor = backgroundColour * vec4(specMult, specMult, specMult, 1.0);
-    if (backgroundColour.r < 0.5)
-    {
-        vec4 specularColour = vec4(0.03 * specular, 0.04 * specular, 0.06 * specular, 1.0);
-        gl_FragColor += specularColour;
-    }
+    vec4 backgroundColour1 = texture2D(samplerBackground1, backgroundCoord + offset * perturbance);
+    vec4 backgroundColour2 = texture2D(samplerBackground2, backgroundCoord + offset * perturbance);
+    // vec4 background = backgroundColour.r < 0.5 ? vec4(0.1,0.1,0.1,1) : vec4(0.95, 0.95, 0.95, 1);
+    float lerp = smoothstep(-0.0, 0.1, specularPow);
+    gl_FragColor = mix(backgroundColour1, backgroundColour2, lerp) * vec4(specMult, specMult, specMult, 1.0);
+
+    // gl_FragColor = smoothstep(0.2, 0.3, specMult)
+    // gl_FragColor = backgroundColour * vec4(specMult, specMult, specMult, 1.0);
+    // if (backgroundColour.r < 0.5)
+    // {
+    //     vec4 specularColour = vec4(0.03 * specular, 0.04 * specular, 0.06 * specular, 1.0);
+    //     gl_FragColor += specularColour;
+    // }
 }`);
         this.gl.uniform2fv(this.renderProgram.locations.delta, this.textureDelta);
     }
 
     private initTexture()
     {
-        this.backgroundTexture = this.gl.createTexture();
-        this.gl.bindTexture(this.gl.TEXTURE_2D, this.backgroundTexture);
+        this.backgroundTexture1 = this.gl.createTexture();
+        this.gl.bindTexture(this.gl.TEXTURE_2D, this.backgroundTexture1);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
+
+        this.backgroundTexture2 = this.gl.createTexture();
+        this.gl.bindTexture(this.gl.TEXTURE_2D, this.backgroundTexture2);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
     }
@@ -609,7 +612,7 @@ void main() {
     {
         if (this.transparentPixels)
         {
-            this.gl.bindTexture(this.gl.TEXTURE_2D, this.backgroundTexture);
+            this.gl.bindTexture(this.gl.TEXTURE_2D, this.backgroundTexture1);
             this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.gl.RGBA, this.gl.UNSIGNED_BYTE, this.transparentPixels);
         }
     }
@@ -644,10 +647,15 @@ void main() {
             return;
         }
 
+        const now = performance.now();
+        this.timestep = (now - this.performanceTime) * 0.001;
+        this.performanceTime = now;
+
         this.gl.viewport(0, 0, this.resolution, this.resolution);
 
         this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, this.framebuffers[this.bufferWriteIndex]);
         this.bindTexture(this.textures[this.bufferReadIndex]);
+        this.gl.uniform1f(this.updateProgram.locations.timestep, this.timestep);
         this.gl.useProgram(this.updateProgram.id);
 
         this.drawQuad();
@@ -691,19 +699,24 @@ void main() {
 
         gl.useProgram(this.renderProgram.id);
 
-        if (this.backgroundTexture)
+        if (this.backgroundTexture1)
         {
-            this.bindTexture(this.backgroundTexture, 0);
+            this.bindTexture(this.backgroundTexture1, 0);
         }
-        this.bindTexture(this.textures[0], 1);
+        if (this.backgroundTexture2)
+        {
+            this.bindTexture(this.backgroundTexture2, 1);
+        }
+        this.bindTexture(this.textures[0], 2);
 
         gl.uniform1f(this.renderProgram.locations.perturbance, this.perturbance);
         gl.uniform1f(this.renderProgram.locations.scroll, this.renderProgram.scroll);
         gl.uniform2fv(this.renderProgram.locations.topLeft, this.renderProgram.topLeft);
         gl.uniform2fv(this.renderProgram.locations.bottomRight, this.renderProgram.bottomRight);
         gl.uniform2fv(this.renderProgram.locations.containerRatio, this.renderProgram.containerRatio);
-        gl.uniform1i(this.renderProgram.locations.samplerBackground, 0);
-        gl.uniform1i(this.renderProgram.locations.samplerRipples, 1);
+        gl.uniform1i(this.renderProgram.locations.samplerBackground1, 0);
+        gl.uniform1i(this.renderProgram.locations.samplerBackground2, 1);
+        gl.uniform1i(this.renderProgram.locations.samplerRipples, 2);
 
         this.drawQuad();
         gl.disable(gl.BLEND);
