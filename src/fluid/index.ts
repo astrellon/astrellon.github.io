@@ -1,4 +1,3 @@
-import { Color } from './color';
 import { Simulation } from './simulation';
 import type { Config } from './types';
 
@@ -34,42 +33,15 @@ class WebGLFluidEnhanced {
     return this.simulation.paused;
   }
 
-  public multipleSplats(amount: number) {
-    if (!this.simulation.hasStarted) return;
-    this.simulation.multipleSplats(amount);
-  }
+  public splatElement(el: HTMLElement) {
+    const bounds = el.getBoundingClientRect();
+    const { width, height } = this.simulation.canvas;
+    const w = bounds.width / width * 0.5;
+    const h = bounds.height / height * 0.5;
+    const x = bounds.x / width + w;
+    const y = 1.0 - bounds.y / height - h;
 
-  public splatAtLocation(
-    x: number,
-    y: number,
-    dx: number,
-    dy: number,
-    HEXColor?: string,
-  ) {
-    if (!this.simulation.hasStarted) return;
-
-    const normalizedX = x / this.simulation.canvas.width;
-    const normalizedY = 1.0 - y / this.simulation.canvas.clientHeight;
-
-    let color = HEXColor ? Color.HEXtoRGB(HEXColor) : undefined;
-
-    if (!color) {
-      color = Color.generateColor(
-        this.simulation.colorPalette,
-        this.simulation.brightness,
-      );
-    }
-
-    color.r *= 10.0;
-    color.g *= 10.0;
-    color.b *= 10.0;
-
-    this.simulation.splat(normalizedX, normalizedY, dx, dy, color);
-  }
-
-  public downloadScreenshot() {
-    if (!this.simulation.hasStarted) return;
-    this.simulation.captureScreenshot();
+    this.simulation.splatBox(x, y, w, h, {r: 0.15, g: 0.3, b: 0.5});
   }
 
   public setConfig(config: Config) {

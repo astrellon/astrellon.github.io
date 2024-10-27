@@ -44,7 +44,6 @@ class Simulation {
   public canvas: HTMLCanvasElement;
   private gl: WebGL2RenderingContext;
   private ext: ExtraContext;
-  private splatStack: number[] = [];
   private pointers: Pointer[] = [];
   private programs: Programs;
   private bloomFramebuffers: FBO[] = [];
@@ -719,20 +718,6 @@ class Simulation {
     this.gl.drawElements(this.gl.TRIANGLES, 6, this.gl.UNSIGNED_SHORT, 0);
   }
 
-  public multipleSplats(amount: number) {
-    for (let i = 0; i < amount; i++) {
-      const color = Color.generateColor(this.colorPalette, this.brightness);
-      color.r *= 10.0;
-      color.g *= 10.0;
-      color.b *= 10.0;
-      const x = Math.random();
-      const y = Math.random();
-      const dx = 1000 * (Math.random() - 0.5);
-      const dy = 1000 * (Math.random() - 0.5);
-      this.splat(x, y, dx, dy, color);
-    }
-  }
-
   public splat(x: number, y: number, dx: number, dy: number, color: RGBColor) {
     this.programs.splatProgram.bind();
     this.gl.uniform1i(
@@ -758,6 +743,37 @@ class Simulation {
     );
     this.gl.uniform3f(
       this.programs.splatProgram.uniforms.color!,
+      color.r,
+      color.g,
+      color.b,
+    );
+    this.blit(this._dye.write);
+    this._dye.swap();
+  }
+
+  public splatBox(x: number, y: number, width: number, height: number, color: RGBColor) {
+    this.programs.splatBoxProgram.bind();
+    this.gl.uniform1i(
+      this.programs.splatBoxProgram.uniforms.uTarget!,
+      this._velocity.read.attach(0),
+    );
+    this.gl.uniform1f(
+      this.programs.splatBoxProgram.uniforms.aspectRatio!,
+      this.canvas.width / this.canvas.height,
+    );
+    this.gl.uniform2f(this.programs.splatBoxProgram.uniforms.point!, x, y);
+    this.gl.uniform2f(this.programs.splatBoxProgram.uniforms.box!, width, height);
+    this.gl.uniform1f(this.programs.splatBoxProgram.uniforms.drawVelocity!, 1.0);
+    this.blit(this._velocity.write);
+    this._velocity.swap();
+
+    this.gl.uniform1f(this.programs.splatBoxProgram.uniforms.drawVelocity!, 0.0);
+    this.gl.uniform1i(
+      this.programs.splatBoxProgram.uniforms.uTarget!,
+      this._dye.read.attach(0),
+    );
+    this.gl.uniform3f(
+      this.programs.splatBoxProgram.uniforms.color!,
       color.r,
       color.g,
       color.b,
@@ -817,9 +833,6 @@ class Simulation {
   }
 
   private applyInputs() {
-    if (this.splatStack.length > 0) {
-      this.multipleSplats(this.splatStack.pop()!);
-    }
     this.pointers.forEach((p) => {
       if (p.moved) {
         p.moved = false;

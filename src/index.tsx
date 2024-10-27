@@ -4,6 +4,7 @@ import { App } from "./components/app";
 import { setInitialState } from './client-store';
 import { DarkBackgroundUrl, LightBackgroundUrl } from './backgrounds';
 import WebGLFluidEnhanced from './fluid';
+import { hoverOverElement } from './components/signals';
 
 (globalThis as any).__store = store;
 
@@ -71,6 +72,11 @@ fluid.setConfig({
     backgroundColor: '#e0e0e0',
     simResolution: 64,
     dyeResolution: 512,
-    splatForce: 3000
+    splatForce: 1000
 });
 fluid.start();
+
+hoverOverElement.add((el: HTMLElement) =>
+{
+    fluid.splatElement(el)
+});

@@ -13,6 +13,7 @@ class Shaders {
   public bloomBlurShader: WebGLShader;
   public bloomFinalShader: WebGLShader;
   public splatShader: WebGLShader;
+  public splatBoxShader: WebGLShader;
   public advectionShader: WebGLShader;
   public divergenceShader: WebGLShader;
   public curlShader: WebGLShader;
@@ -281,6 +282,60 @@ class Shaders {
         vec2 p = vUv - point.xy;
         p.x *= aspectRatio;
         vec3 splat = exp(-dot(p, p) / radius) * color;
+        vec3 base = texture2D(uTarget, vUv).xyz;
+        gl_FragColor = vec4(base + splat, 1.0);
+    }
+`,
+    )!;
+
+    this.splatBoxShader = Shader.compileShader(
+      gl,
+      gl.FRAGMENT_SHADER,
+      `
+    precision highp float;
+    precision highp sampler2D;
+
+    varying vec2 vUv;
+    uniform sampler2D uTarget;
+    uniform float aspectRatio;
+    uniform vec3 color;
+    uniform vec2 point;
+    uniform vec2 box;
+    uniform float drawVelocity;
+
+    vec2 cloBox( in vec2 p, in vec2 b ) {
+        vec2 s = sign(p);
+        vec2 w = abs(p) - b;
+        float g = max(w.x,w.y);
+        float m = min(0.0,g);
+        return p - vec2(w.x>=m?w.x:0.0,w.y>=m?w.y:0.0)*s;
+    }
+
+    float sdBox( in vec2 p, in vec2 b ) {
+        vec2 w = abs(p)-b;
+        float g = max(w.x,w.y);
+        return (g>0.0)?length(max(w,0.0)):g;
+    }
+
+    void main () {
+        vec2 p = vUv - point.xy;
+        p.x *= aspectRatio;
+
+        float dist = sdBox(p, box);
+        vec3 splat;
+
+        if (drawVelocity > 0.5) {
+            vec2 cl = cloBox(p, box);
+            if (dist < 0.0) {
+                vec2 toEdge = (1.0 - (cl - p)) * 10.0;
+                splat = vec3(toEdge, 0);
+            }
+        }
+        else {
+            float s = smoothstep(0.0, -0.01, dist);
+            splat = s * color;
+        }
+
         vec3 base = texture2D(uTarget, vUv).xyz;
         gl_FragColor = vec4(base + splat, 1.0);
     }

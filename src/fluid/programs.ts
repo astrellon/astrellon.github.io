@@ -10,6 +10,7 @@ class Programs {
   public bloomBlurProgram: Program;
   public bloomFinalProgram: Program;
   public splatProgram: Program;
+  public splatBoxProgram: Program;
   public advectionProgram: Program;
   public divergenceProgram: Program;
   public curlProgram: Program;
@@ -63,6 +64,12 @@ class Programs {
     this.splatProgram = new Program(
       shaders.baseVertexShader,
       shaders.splatShader,
+      gl,
+    );
+
+    this.splatBoxProgram = new Program(
+      shaders.baseVertexShader,
+      shaders.splatBoxShader,
       gl,
     );
 
