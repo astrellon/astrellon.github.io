@@ -332,7 +332,7 @@ class Shaders {
             }
         }
         else {
-            float s = smoothstep(0.0, -0.01, dist);
+            float s = smoothstep(0.0, -0.1, dist);
             splat = s * color;
         }
 

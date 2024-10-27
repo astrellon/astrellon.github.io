@@ -1,5 +1,5 @@
 import { Simulation } from './simulation';
-import type { Config } from './types';
+import type { Config, RGBColor } from './types';
 
 class WebGLFluidEnhanced {
   private container: HTMLElement;
@@ -33,15 +33,16 @@ class WebGLFluidEnhanced {
     return this.simulation.paused;
   }
 
-  public splatElement(el: HTMLElement) {
+  public splatElement(el: HTMLElement, colour: RGBColor) {
     const bounds = el.getBoundingClientRect();
-    const { width, height } = this.simulation.canvas;
-    const w = bounds.width / width * 0.5;
-    const h = bounds.height / height * 0.5;
-    const x = bounds.x / width + w;
-    const y = 1.0 - bounds.y / height - h;
+    const deviceRatio = window.devicePixelRatio;
+    let { width, height } = this.simulation.canvas;
+    const w = bounds.width / width * deviceRatio;
+    const h = bounds.height / height * deviceRatio;
+    const x = bounds.x * deviceRatio / width + w * 0.5;
+    const y = 1.0 - bounds.y * deviceRatio / height - h * 0.5;
 
-    this.simulation.splatBox(x, y, w, h, {r: 0.15, g: 0.3, b: 0.5});
+    this.simulation.splatBox(x, y, w, h, colour);
   }
 
   public setConfig(config: Config) {
@@ -92,9 +93,6 @@ class WebGLFluidEnhanced {
     }
     if (config.backgroundColor !== undefined) {
       this.simulation.backgroundColor = config.backgroundColor;
-    }
-    if (config.inverted !== undefined) {
-      this.simulation.inverted = config.inverted;
     }
     if (config.transparent !== undefined) {
       this.simulation.transparent = config.transparent;
