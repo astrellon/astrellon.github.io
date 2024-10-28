@@ -6,7 +6,7 @@ export const Work: PostState[] = [
         "contents": [
             {
                 "text": [
-                    "[post-header](Three Divers | JAN 2020 - PRESENT)",
+                    "[post-header](Fluent Cargo | JAN 2020 - PRESENT)",
                     "Working on a freight multi-modal routing application for finding how to get cargo from A to B.",
                     "Currently not released to the public so can't go into details too much.",
                     "My work included:",

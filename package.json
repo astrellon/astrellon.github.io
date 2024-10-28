@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "parcel --no-cache ./src/index.html",
-    "build": "rm -rf ./docs && parcel build --dist-dir ./docs ./src/index.html && cp -r ./src/assets ./docs && cp CNAME ./docs && rm ./docs/*.map"
+    "build": "rm -rf ./docs && parcel build --no-cache --dist-dir ./docs ./src/index.html && cp -r ./src/assets ./docs/assets && cp CNAME ./docs && rm ./docs/*.map"
   },
   "author": "",
   "license": "ISC",

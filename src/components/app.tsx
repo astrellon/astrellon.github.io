@@ -72,6 +72,6 @@ function onPageChange(page: PageState)
         pageId: page.id
     }
 
-    window.history.pushState(pushedState, page.title, `/${page.id}`);
+    window.history.pushState(pushedState, page.title, `/?page=${page.id}`);
     store.execute(setSelectedPageId(page.id));
 }

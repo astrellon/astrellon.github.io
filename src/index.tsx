@@ -1,28 +1,31 @@
 import { vdom, render } from "simple-tsx-vdom";
-import { setSelectedPageId, WindowHistory, State, store, setIsMobile } from "./store";
+import { setSelectedPageId, WindowHistory, State, store, setIsMobile, PageId } from "./store";
 import { App } from "./components/app";
 import { setInitialState } from './client-store';
-import { DarkBackgroundUrl, LightBackgroundUrl } from './backgrounds';
 import WebGLFluidEnhanced from './fluid';
-import { hoverOverElement } from './components/signals';
-import { RGBColor } from "./fluid/types";
 
 (globalThis as any).__store = store;
 
 const initialState = (globalThis as any).__state as State | undefined;
 const lightColourPalette = ['#8946b5', '#526977', '#a89870'];
-const darkColourPalette = ['#5c2771', '#374a4f', '#7b664a'];
-const lightBackground = '#e0e0e0';
-const darkBackground = '#101010';
+const darkColourPalette = ['#3c1751', '#172a2f', '#4b261a'];
+const lightBackground = '#e0e2e4';
+const darkBackground = '#050403';
 if (initialState != undefined)
 {
     store.execute(setInitialState(initialState));
 }
 
+const windowUrl = new URL(document.location.toString());
+const startingPage = windowUrl.searchParams.get('page');
+if (startingPage != null)
+{
+    store.execute(setSelectedPageId(startingPage as PageId));
+}
+
 function renderApp(state: State)
 {
     document.body.classList.toggle('dark-theme', state.darkTheme);
-    document.body.style.backgroundImage = state.darkTheme ? DarkBackgroundUrl : LightBackgroundUrl;
     render(<App state={state} />, document.body);
 }
 // Render the app on start
@@ -83,12 +86,3 @@ fluid.setConfig({
     splatForce: 1000
 });
 fluid.start();
-
-const lightHoverSplat: RGBColor = {r: 0.4, g: 0.5, b: 0.6};
-const darkHoverSplat: RGBColor = {r: 0.2, g: 0.3, b: 0.4};
-
-hoverOverElement.add((el: HTMLElement) =>
-{
-    const colour = store.state().darkTheme ? darkHoverSplat : lightHoverSplat;
-    fluid.splatElement(el, colour);
-});
