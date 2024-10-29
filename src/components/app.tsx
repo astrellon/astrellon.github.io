@@ -12,6 +12,7 @@ import RipplesComp from "./ripples-comp";
 import { AllIcons } from "./icon";
 import MobileBottomNavbar from "./mobile-bottom-navbar";
 import MobileTopNavbar from "./mobile-top-navbar";
+import WebGLFluidComp from "./webgl-fluid-comp";
 
 interface Props
 {
@@ -21,9 +22,12 @@ interface Props
 let postsContainerEl: HTMLElement | null = null;
 let htmlEl: HTMLElement | null = null;
 
+const lightColourPalette = ['#8946b5', '#526977', '#a89870'];
+const darkColourPalette = ['#3c1751', '#172a2f', '#4b261a'];
+
 export const App: FunctionalComponent<Props> = (props: Props) =>
 {
-    const { pages, posts, selectedPageId, darkTheme, isMobile, ripplesEnabled, backgrounds } = props.state;
+    const { pages, posts, selectedPageId, darkTheme, isMobile, ripplesEnabled, documentReady } = props.state;
 
     if (postsContainerEl == undefined && typeof(window) !== 'undefined')
     {
@@ -57,11 +61,11 @@ export const App: FunctionalComponent<Props> = (props: Props) =>
                 onPageChange={onPageChange} /> }
         </main>
 
-        {/* { ripplesEnabled &&
-        <RipplesComp
+        <WebGLFluidComp
+            lightColourPalette={lightColourPalette}
+            darkColourPalette={darkColourPalette}
             darkTheme={darkTheme}
-            backgrounds={backgrounds}
-            scrollElement={isMobile ? postsContainerEl : htmlEl} /> } */}
+            enabled={documentReady && ripplesEnabled} />
     </div>
 }
 

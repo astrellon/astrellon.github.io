@@ -123,6 +123,9 @@ class Simulation {
     });
     window.addEventListener('touchend', this.handleTouchEnd);
 
+    this.canvas.style.display = '';
+    this.lastUpdateTime = Date.now();
+
     this.hasStarted = true;
   }
 
@@ -137,6 +140,8 @@ class Simulation {
     window.removeEventListener('touchstart', this.handleTouchStart);
     window.removeEventListener('touchmove', this.handleTouchMove);
     window.removeEventListener('touchend', this.handleTouchEnd);
+
+    this.canvas.style.display = 'none';
 
     this.hasStarted = false;
   }

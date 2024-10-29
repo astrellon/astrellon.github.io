@@ -17,7 +17,7 @@ export default class NavbarMenu extends ClassComponent<Props>
 
         return <Menu>
             <CircleButton icon='theme' text={`${darkTheme ? 'Light' : 'Dark'} Theme`} onclick={this.toggleDarkTheme} active={darkTheme} />
-            <CircleButton icon='ripples' text={ripplesEnabled ? 'Ripples Off' : 'Ripples On'} disableIcon={!ripplesEnabled} onclick={this.toggleRipples} />
+            <CircleButton icon='ripples' text={ripplesEnabled ? 'Fluid Off' : 'Fluid On'} disableIcon={!ripplesEnabled} onclick={this.toggleRipples} />
         </Menu>
     }
 

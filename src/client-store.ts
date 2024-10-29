@@ -31,15 +31,12 @@ for (const page of Pages)
 setStore(new DataStore<State>({
     pages: Pages,
     posts: combinePosts(posts),
-    backgrounds: {
-        dark: [],
-        light: []
-    },
     selectedPageId: initialPageId,
     darkTheme: false,
     postsHeight: 0,
     isMobile: false,
-    ripplesEnabled: true
+    ripplesEnabled: true,
+    documentReady: false
 }));
 
 export function setInitialState(state: State): Modifier<State>

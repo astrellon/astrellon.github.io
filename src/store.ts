@@ -63,37 +63,24 @@ export interface PostStored extends PostState
     readonly type: "post";
 }
 
-export interface BackgroundStored
-{
-    readonly type: "background";
-    readonly backgroundType: "light" | "dark";
-    readonly url: string;
-}
-
 export interface PostStateMap
 {
     readonly [pageId: string]: PostState[];
 }
 
-export interface Backgrounds
-{
-    readonly light: string[];
-    readonly dark: string[];
-}
-
 export interface State
 {
     readonly pages: PageState[];
-    readonly backgrounds: Backgrounds;
     readonly posts: PostStateMap;
     readonly selectedPageId: string;
     readonly darkTheme: boolean;
     readonly postsHeight: number;
     readonly isMobile: boolean;
     readonly ripplesEnabled: boolean;
+    readonly documentReady: boolean;
 }
 
-export type DataStored = PageStored | PostStored | BackgroundStored;
+export type DataStored = PageStored | PostStored;
 
 export interface WindowHistory
 {
@@ -137,6 +124,11 @@ export function setDarkTheme(darkTheme: boolean): Modifier<State>
 export function setEnableRipples(ripplesEnabled: boolean): Modifier<State>
 {
     return () => { return { ripplesEnabled } }
+}
+
+export function setDocumentReady(): Modifier<State>
+{
+    return () => { return { documentReady: true } }
 }
 ///////
 
