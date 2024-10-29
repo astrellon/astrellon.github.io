@@ -17,7 +17,7 @@ export const Work: PostState[] = [
                 ],
                 "pictures": [{
                     "url": "/assets/fluentCargo_routes_small.jpg" as Url,
-                    "caption": "Different routes available between London, UK and Jeddah, Saudi Araabia.",
+                    "caption": "Different routes available between London, UK and Jeddah, Saudi Arabia.",
                     "fullSizeUrl": "/assets/fluentCargo_routes.webp" as Url
                 }, {
                     "url": "/assets/fluentCargo_schedules_small.jpg" as Url,
