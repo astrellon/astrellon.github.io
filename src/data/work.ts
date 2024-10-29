@@ -7,18 +7,26 @@ export const Work: PostState[] = [
             {
                 "text": [
                     "[post-header](Fluent Cargo | JAN 2020 - PRESENT)",
-                    "Working on a freight multi-modal routing application for finding how to get cargo from A to B.",
-                    "Currently not released to the public so can't go into details too much.",
+                    "[link](Fluent Cargo | https://fluentcargo.com) is a multi-modal freight routing solution. ",
                     "My work included:",
                     "* A content server for processing data from multiple data sources into a unified structure that can then be manipulated further manually.",
                     "* A main server for using the processed data for routing and cataloging relationships between the data.",
                     "* A frontend for manipulating the data on in the content server.",
-                    "* Hosted on AWS using EC2, load balancers, RDS and S3."
+                    "* Integrate multiple different endpoints for either live data or storing a local copy.",
+                    "* Hosting on AWS using EC2, load balancers, S3 and CodeBuild."
                 ],
                 "pictures": [{
-                    "url": "/assets/threeDiversMockThumbnail.jpg" as Url,
-                    "caption": "A basic graphic of routing across different modes.",
-                    "fullSizeUrl": "/assets/threeDiversMock.jpg" as Url
+                    "url": "/assets/fluentCargo_routes_small.jpg" as Url,
+                    "caption": "Different routes available between London, UK and Jeddah, Saudi Araabia.",
+                    "fullSizeUrl": "/assets/fluentCargo_routes.webp" as Url
+                }, {
+                    "url": "/assets/fluentCargo_schedules_small.jpg" as Url,
+                    "caption": "Ocean schedules between Long Beach, USA and Ningbo, China.",
+                    "fullSizeUrl": "/assets/fluentCargo_schedules.webp" as Url
+                }, {
+                    "url": "/assets/fluentCargo_ports_small.jpg" as Url,
+                    "caption": "Ports that are directly connected to Halifax, Canada.",
+                    "fullSizeUrl": "/assets/fluentCargo_ports.webp" as Url
                 }],
                 "picturePosition": "left"
             },

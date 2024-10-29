@@ -6,6 +6,42 @@ export const Projects: PostState[] = [
         "contents": [
             {
                 "text": [
+                    "[h3](Space Strife)",
+                    "A chaotic space shooter around defending a planet using tanks!",
+                    "Main features:",
+                    "* Alien motherships will be hiding behind gravity sources that you'll have to aim around.",
+                    "* Supports bullet hell level of projectiles and runs well on lower end hardware.",
+                    "* Defeating aliens gives you the money needed to buy more tanks or upgrade existing ones.",
+                    "* Multiple characters that have different abilities such as temporary power ups, projectile splitting and slowing time.",
+                    "* Works on mobile in landscape and portrait with a slightly different control scheme in each.",
+                    "* An alpha build of the game is available on [link](itch.io | https://astrellon.itch.io/space-strife)."
+                ],
+                "links": [{
+                    "url": "https://www.youtube.com/playlist?list=PLTf8ZRLo3EcM2af7AtxFiqQySnzFKEprt" as Url,
+                    "icon": "youtube",
+                    "title": "Devloga Playlist"
+                }, {
+                    "url": "https://astrellon.itch.io/space-strife" as Url,
+                    "icon": "itchio",
+                    "title": "itch.io page for downloading the game."
+                }],
+                "pictures": [{
+                    "url": "/assets/spacestrife-v0.3-easy_small.jpg" as Url,
+                    "caption": "An early level.",
+                    "fullSizeUrl": "/assets/spacestrife-v0.3-easy.png" as Url
+                }, {
+                    "url": "/assets/spacestrife-v0.3-levelSelect_small.jpg" as Url,
+                    "caption": "The level select screen is a zoomed out 'world view' of each level.",
+                    "fullSizeUrl": "/assets/spacestrife-v0.3-levelSelect.png" as Url
+                }, {
+                    "url": "/assets/spacestrife-v0.3-hard_small.jpg" as Url,
+                    "caption": "A later level with more going on.",
+                    "fullSizeUrl": "/assets/spacestrife-v0.3-hard.jpg" as Url
+                }],
+                "picturePosition": "left"
+            },
+            {
+                "text": [
                     "[h3](Lysithea)",
                     "A scripting language designed to live inside other systems to glue them together",
                     "Main features:",
