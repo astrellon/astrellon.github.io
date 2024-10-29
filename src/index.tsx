@@ -17,6 +17,7 @@ if (initialState != undefined)
 
 const windowUrl = new URL(document.location.toString());
 const startingPage = windowUrl.searchParams.get('page');
+let fluid: WebGLFluidEnhanced | null = null;
 if (startingPage != null)
 {
     store.execute(setSelectedPageId(startingPage as PageId));
@@ -41,7 +42,7 @@ store.subscribe(state => state.darkTheme, (state, darkTheme) =>
     document.cookie = `darkTheme=${darkTheme}`;
 
     const colorPalette = darkTheme ? darkColourPalette : lightColourPalette;
-    fluid.setConfig({ colorPalette });
+    fluid?.setConfig({ colorPalette });
 });
 store.subscribe(state => state.ripplesEnabled, (state, ripplesEnabled) =>
 {
@@ -67,39 +68,53 @@ window.addEventListener('popstate', (event) =>
     }
 });
 
-const fluid = new WebGLFluidEnhanced(document.getElementById('renderSurface') as HTMLElement);
-fluid.setConfig({
-    colorPalette: lightColourPalette,
-    hover: true,
-    shading: true,
-    splatRadius: 0.2,
-    velocityDissipation: 1.2,
-    densityDissipation: 1.2,
-    pressureIterations: 10,
-    bloom: true,
-    curl: 10,
-    simResolution: 64,
-    dyeResolution: 512,
-    splatForce: 1000,
-    transparent: true
-});
-fluid.start();
-
-let overEl = 0;
-function updateSplatRadius()
+if (document.readyState !== 'complete')
 {
-    const splatRadius = overEl > 0 ? 0.4 : 0.2;
-    const splatForce = overEl > 0 ? 2000 : 1000;
-    fluid.setConfig({ splatRadius, splatForce });
+    document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+            setupFluid();
+        }
+    };
+}
+else
+{
+    setupFluid();
 }
 
-hoverOverElement.add((el) =>
-{
-    overEl++;
-    updateSplatRadius();
-});
-hoverOutElement.add((el) =>
-{
-    overEl--;
-    updateSplatRadius();
-});
+function setupFluid() {
+    fluid = new WebGLFluidEnhanced(
+        document.getElementById("renderSurface") as HTMLElement
+    );
+    fluid.setConfig({
+        colorPalette: lightColourPalette,
+        hover: true,
+        shading: true,
+        splatRadius: 0.2,
+        velocityDissipation: 1.2,
+        densityDissipation: 1.2,
+        pressureIterations: 10,
+        bloom: true,
+        curl: 10,
+        simResolution: 64,
+        dyeResolution: 512,
+        splatForce: 1000,
+        transparent: true,
+    });
+    fluid.start();
+
+    let overEl = 0;
+    function updateSplatRadius() {
+        const splatRadius = overEl > 0 ? 0.4 : 0.2;
+        const splatForce = overEl > 0 ? 2000 : 1000;
+        fluid?.setConfig({ splatRadius, splatForce });
+    }
+
+    hoverOverElement.add((el) => {
+        overEl++;
+        updateSplatRadius();
+    });
+    hoverOutElement.add((el) => {
+        overEl--;
+        updateSplatRadius();
+    });
+}
