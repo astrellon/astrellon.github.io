@@ -58,6 +58,7 @@ class Simulation {
   private _pressure!: DoubleFBO;
   private _bloom!: FBO;
   private animationFrameId!: number;
+  private _countdown: number = 0;
 
   constructor(container: HTMLElement) {
     let canvas = container.querySelector('canvas');
@@ -749,37 +750,8 @@ class Simulation {
     );
     this.blit(this._dye.write);
     this._dye.swap();
-  }
 
-  public splatBox(x: number, y: number, width: number, height: number, color: RGBColor) {
-    this.programs.splatBoxProgram.bind();
-    this.gl.uniform1i(
-      this.programs.splatBoxProgram.uniforms.uTarget!,
-      this._velocity.read.attach(0),
-    );
-    this.gl.uniform1f(
-      this.programs.splatBoxProgram.uniforms.aspectRatio!,
-      this.canvas.width / this.canvas.height,
-    );
-    this.gl.uniform2f(this.programs.splatBoxProgram.uniforms.point!, x, y);
-    this.gl.uniform2f(this.programs.splatBoxProgram.uniforms.box!, width, height);
-    this.gl.uniform1f(this.programs.splatBoxProgram.uniforms.drawVelocity!, 1.0);
-    this.blit(this._velocity.write);
-    this._velocity.swap();
-
-    this.gl.uniform1f(this.programs.splatBoxProgram.uniforms.drawVelocity!, 0.0);
-    this.gl.uniform1i(
-      this.programs.splatBoxProgram.uniforms.uTarget!,
-      this._dye.read.attach(0),
-    );
-    this.gl.uniform3f(
-      this.programs.splatBoxProgram.uniforms.color!,
-      color.r,
-      color.g,
-      color.b,
-    );
-    this.blit(this._dye.write);
-    this._dye.swap();
+    this._countdown = 4.0;
   }
 
   private correctRadius(radius: number): number {
@@ -792,10 +764,18 @@ class Simulation {
 
   private update() {
     const dt = this.calcDeltaTime();
+    this._countdown -= dt;
+
     if (this.resizeCanvas()) this.initFramebuffers();
 
     this.updateColors(dt);
     this.applyInputs();
+
+    if (this._countdown <= 0.0)
+    {
+        this.animationFrameId = requestAnimationFrame(this.update);
+        return;
+    }
 
     if (!this.paused) this.step(dt);
 

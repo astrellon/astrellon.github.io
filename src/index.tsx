@@ -3,14 +3,13 @@ import { setSelectedPageId, WindowHistory, State, store, setIsMobile, PageId } f
 import { App } from "./components/app";
 import { setInitialState } from './client-store';
 import WebGLFluidEnhanced from './fluid';
+import { hoverOutElement, hoverOverElement } from "./components/signals";
 
 (globalThis as any).__store = store;
 
 const initialState = (globalThis as any).__state as State | undefined;
 const lightColourPalette = ['#8946b5', '#526977', '#a89870'];
 const darkColourPalette = ['#3c1751', '#172a2f', '#4b261a'];
-const lightBackground = '#e0e2e4';
-const darkBackground = '#050403';
 if (initialState != undefined)
 {
     store.execute(setInitialState(initialState));
@@ -42,8 +41,7 @@ store.subscribe(state => state.darkTheme, (state, darkTheme) =>
     document.cookie = `darkTheme=${darkTheme}`;
 
     const colorPalette = darkTheme ? darkColourPalette : lightColourPalette;
-    const backgroundColor = darkTheme ? darkBackground : lightBackground;
-    fluid.setConfig({ colorPalette, backgroundColor });
+    fluid.setConfig({ colorPalette });
 });
 store.subscribe(state => state.ripplesEnabled, (state, ripplesEnabled) =>
 {
@@ -80,9 +78,28 @@ fluid.setConfig({
     pressureIterations: 10,
     bloom: true,
     curl: 10,
-    backgroundColor: lightBackground,
     simResolution: 64,
     dyeResolution: 512,
-    splatForce: 1000
+    splatForce: 1000,
+    transparent: true
 });
 fluid.start();
+
+let overEl = 0;
+function updateSplatRadius()
+{
+    const splatRadius = overEl > 0 ? 0.4 : 0.2;
+    const splatForce = overEl > 0 ? 2000 : 1000;
+    fluid.setConfig({ splatRadius, splatForce });
+}
+
+hoverOverElement.add((el) =>
+{
+    overEl++;
+    updateSplatRadius();
+});
+hoverOutElement.add((el) =>
+{
+    overEl--;
+    updateSplatRadius();
+});

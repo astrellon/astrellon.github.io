@@ -1,5 +1,5 @@
 import { Simulation } from './simulation';
-import type { Config, RGBColor } from './types';
+import type { Config } from './types';
 
 class WebGLFluidEnhanced {
   private container: HTMLElement;
@@ -33,90 +33,9 @@ class WebGLFluidEnhanced {
     return this.simulation.paused;
   }
 
-  public splatElement(el: HTMLElement, colour: RGBColor) {
-    const bounds = el.getBoundingClientRect();
-    const deviceRatio = window.devicePixelRatio;
-    let { width, height } = this.simulation.canvas;
-    const w = bounds.width / width * deviceRatio;
-    const h = bounds.height / height * deviceRatio;
-    const x = bounds.x * deviceRatio / width + w * 0.5;
-    const y = 1.0 - bounds.y * deviceRatio / height - h * 0.5;
-
-    this.simulation.splatBox(x, y, w, h, colour);
-  }
-
   public setConfig(config: Config) {
-    if (config.simResolution !== undefined) {
-      this.simulation.simResolution = config.simResolution;
-    }
-    if (config.dyeResolution !== undefined) {
-      this.simulation.dyeResolution = config.dyeResolution;
-    }
-    if (config.captureResolution !== undefined) {
-      this.simulation.captureResolution = config.captureResolution;
-    }
-    if (config.densityDissipation !== undefined) {
-      this.simulation.densityDissipation = config.densityDissipation;
-    }
-    if (config.velocityDissipation !== undefined) {
-      this.simulation.velocityDissipation = config.velocityDissipation;
-    }
-    if (config.pressure !== undefined) {
-      this.simulation.pressure = config.pressure;
-    }
-    if (config.pressureIterations !== undefined) {
-      this.simulation.pressureIterations = config.pressureIterations;
-    }
-    if (config.curl !== undefined) {
-      this.simulation.curl = config.curl;
-    }
-    if (config.splatRadius !== undefined) {
-      this.simulation.splatRadius = config.splatRadius;
-    }
-    if (config.splatForce !== undefined) {
-      this.simulation.splatForce = config.splatForce;
-    }
-    if (config.shading !== undefined) {
-      this.simulation.shading = config.shading;
-    }
-    if (config.colorful !== undefined) {
-      this.simulation.colorful = config.colorful;
-    }
-    if (config.colorUpdateSpeed !== undefined) {
-      this.simulation.colorUpdateSpeed = config.colorUpdateSpeed;
-    }
-    if (config.colorPalette !== undefined) {
-      this.simulation.colorPalette = config.colorPalette;
-    }
-    if (config.hover !== undefined) {
-      this.simulation.hover = config.hover;
-    }
-    if (config.backgroundColor !== undefined) {
-      this.simulation.backgroundColor = config.backgroundColor;
-    }
-    if (config.transparent !== undefined) {
-      this.simulation.transparent = config.transparent;
-    }
-    if (config.brightness !== undefined) {
-      this.simulation.brightness = config.brightness;
-    }
-    if (config.bloom !== undefined) {
-      this.simulation.bloom = config.bloom;
-    }
-    if (config.bloomIterations !== undefined) {
-      this.simulation.bloomIterations = config.bloomIterations;
-    }
-    if (config.bloomResolution !== undefined) {
-      this.simulation.bloomResolution = config.bloomResolution;
-    }
-    if (config.bloomIntensity !== undefined) {
-      this.simulation.bloomIntensity = config.bloomIntensity;
-    }
-    if (config.bloomThreshold !== undefined) {
-      this.simulation.bloomThreshold = config.bloomThreshold;
-    }
-    if (config.bloomSoftKnee !== undefined) {
-      this.simulation.bloomSoftKnee = config.bloomSoftKnee;
+    for (const prop in config) {
+        this.simulation[prop] = config[prop];
     }
 
     if (!this.simulation.hasStarted) return;

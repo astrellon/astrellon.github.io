@@ -1,4 +1,31 @@
-const defaultConfig = {
+export interface SimulationConfig {
+  simResolution: number;
+  dyeResolution: number;
+  captureResolution: number;
+  densityDissipation: number;
+  velocityDissipation: number;
+  pressure: number;
+  pressureIterations: number;
+  curl: number;
+  splatRadius: number;
+  splatForce: number;
+  shading: boolean;
+  colorful: boolean;
+  colorUpdateSpeed: number;
+  colorPalette: string[];
+  hover: boolean;
+  backgroundColor: string;
+  transparent: boolean;
+  brightness: number;
+  bloom: boolean;
+  bloomIterations: number;
+  bloomResolution: number;
+  bloomIntensity: number;
+  bloomThreshold: number;
+  bloomSoftKnee: number;
+}
+
+const defaultConfig: SimulationConfig = {
   simResolution: 128,
   dyeResolution: 1024,
   captureResolution: 512,

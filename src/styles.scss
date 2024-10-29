@@ -34,10 +34,12 @@ body {
 
     @include cubic-transition();
     transition-property: color, background-color;
+    background-image: url('data:image/webp;base64,UklGRk4AAABXRUJQVlA4TEEAAAAvB8ABADdAJm0z/2Z3jl2xQaRtU/9qD8dOpG1T/2oPxz7/0S3kBy8rAIRsJDmosjevMgrzEf0PIsS/JvIiPFsnAgA=');
 }
 
 body.dark-theme {
     background-color: $bg-dark-colour;
+    background-image: url('data:image/webp;base64,UklGRkgAAABXRUJQVlA4TDwAAAAvB8ABADdANmkbq1PpViJt21DPxk6kbRvq2djnP/6HbKBlBYCQjSQHVfbmVUZhPqL/QYT410RehGfrRAA=');
     color: $font-dark-colour;
 }
 
