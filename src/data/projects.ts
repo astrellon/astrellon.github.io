@@ -86,7 +86,8 @@ export const Projects: PostState[] = [
                     "* Explore space to find old shipwrecks to find salvageable parts.",
                     "* Find asteroids to mine for resources that can be used for crafting new parts.",
                     "* Be self-sufficient in deep space by looking after your ship.",
-                    "* Made in Unity 2020",
+                    "* Made in Unity 2022",
+                    "* Use Lysithea as the scripting language for creating levels.",
                     "Some of these features are still being worked on, however I am keeping a devlog on YouTube.",
                     "It's very ambitious and who knows how far I'll get, but I've already gotten a lot further than I thought I would.",
                     "Currently I'm not planning on releasing the source code as it also contains paid for Unity assets."
@@ -97,17 +98,17 @@ export const Projects: PostState[] = [
                     "title": "Devlog Playlist"
                 }],
                 "pictures": [{
-                    "url": "/assets/tailspinStarPlanetThumbnail.jpg" as Url,
-                    "caption": "A scene showing a nearby planet and the star at the center of the system.",
-                    "fullSizeUrl": "/assets/tailspinStarPlanet.jpg" as Url
+                    "url": "/assets/tailspin_shuttle_small.jpg" as Url,
+                    "caption": "The cockpit of a shuttle showing the main controls with a holographic sensor display.",
+                    "fullSizeUrl": "/assets/tailspin_shuttle.jpg" as Url
                 }, {
-                    "url": "/assets/tailspinTractorBeamsThumbnail.jpg" as Url,
-                    "caption": "A ship using it's tractor beams to pull in some rocks that have just been mined from an asteroid.",
-                    "fullSizeUrl": "/assets/tailspinTractorBeams.jpg" as Url
+                    "url": "/assets/tailspin_spacestation_small.jpg" as Url,
+                    "caption": "An example of a space station interior with a placeholder NPC.",
+                    "fullSizeUrl": "/assets/tailspin_spacestation.jpg" as Url
                 }, {
-                    "url": "/assets/tailspinEquipmentThumbnail.jpg" as Url,
-                    "caption": "An example of a ship engine sitting outside of it's hardpoint before it's installed into the ship.",
-                    "fullSizeUrl": "/assets/tailspinEquipment.jpg" as Url
+                    "url": "/assets/tailspin_warp_small.jpg" as Url,
+                    "caption": "A exterior shot of a larger ship at FTL.",
+                    "fullSizeUrl": "/assets/tailspin_warp.jpg" as Url
                 }],
                 "picturePosition": "left"
             },

@@ -27,7 +27,7 @@ export const AboutMe: PostState[] = [
                     "I also like learning about how things are done.",
                     "As part of that I've re-created several systems for learning purposes.",
                     "This website is an example of that, it is built using my own state management ([link](simple-data-store | https://www.npmjs.com/package/simple-data-store)), virtual dom ([link](simple-tsx-vdom | https://www.npmjs.com/package/simple-tsx-vdom)), and signals ([link](simple-signals | https://www.npmjs.com/package/simple-signals)).",
-                    "The source for this website is [link](here | https://github.com/astrellon/astrellon.github.io).",
+                    "The source for this website is on [link](GitHub | https://github.com/astrellon/astrellon.github.io).",
                     "The background fluid effect is from Michael Brusegard's [link](WebGL Fluid Enhanced | https://github.com/michaelbrusegard/WebGL-Fluid-Enhanced)."
                 ]
             }
