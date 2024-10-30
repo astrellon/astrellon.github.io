@@ -2,13 +2,11 @@ import "../normalize.css";
 import "../styles.scss";
 import "../grid.scss";
 import "./app.scss";
-import "./ripples-comp.scss";
 
 import { FunctionalComponent, vdom } from "simple-tsx-vdom";
 import { PageState, setSelectedPageId, State, store, WindowHistory } from "../store";
 import { Navbar } from "./navbar";
 import { Posts } from "./posts";
-import RipplesComp from "./ripples-comp";
 import { AllIcons } from "./icon";
 import MobileBottomNavbar from "./mobile-bottom-navbar";
 import MobileTopNavbar from "./mobile-top-navbar";
@@ -27,7 +25,7 @@ const darkColourPalette = ['#3c1751', '#172a2f', '#4b261a'];
 
 export const App: FunctionalComponent<Props> = (props: Props) =>
 {
-    const { pages, posts, selectedPageId, darkTheme, isMobile, ripplesEnabled, documentReady } = props.state;
+    const { pages, posts, selectedPageId, darkTheme, isMobile, fluidEnabled, documentReady } = props.state;
 
     if (postsContainerEl == undefined && typeof(window) !== 'undefined')
     {
@@ -45,11 +43,11 @@ export const App: FunctionalComponent<Props> = (props: Props) =>
                 pages={pages}
                 onPageChange={onPageChange}
                 darkTheme={darkTheme}
-                ripplesEnabled={ripplesEnabled} /> }
+                fluidEnabled={fluidEnabled} /> }
 
             { isMobile && <MobileTopNavbar
                 darkTheme={darkTheme}
-                ripplesEnabled={ripplesEnabled} /> }
+                fluidEnabled={fluidEnabled} /> }
 
             <div class='container app__post-container'>
                 <Posts key={selectedPageId} category={pages.find(c => c.id === selectedPageId)} posts={posts[selectedPageId]} />
@@ -65,7 +63,7 @@ export const App: FunctionalComponent<Props> = (props: Props) =>
             lightColourPalette={lightColourPalette}
             darkColourPalette={darkColourPalette}
             darkTheme={darkTheme}
-            enabled={documentReady && ripplesEnabled} />
+            enabled={documentReady && fluidEnabled} />
     </div>
 }
 

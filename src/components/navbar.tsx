@@ -9,7 +9,7 @@ interface Props
     readonly selectedPageId: PageId;
     readonly pages: PageState[];
     readonly darkTheme: boolean;
-    readonly ripplesEnabled: boolean;
+    readonly fluidEnabled: boolean;
     readonly onPageChange: (page: PageState) => void;
 }
 
@@ -17,7 +17,7 @@ export class Navbar extends ClassComponent<Props>
 {
     public render()
     {
-        const { pages, selectedPageId, darkTheme, ripplesEnabled } = this.props;
+        const { pages, selectedPageId, darkTheme, fluidEnabled } = this.props;
 
         return <nav class='navbar'>
             <h1>Alan Lawrey</h1>
@@ -25,7 +25,7 @@ export class Navbar extends ClassComponent<Props>
                 { pages.map(page => <NavbarPageButton active={page.id === selectedPageId} page={page} onClick={this.onClickPage} />) }
             </div>
 
-            <NavbarMenu darkTheme={darkTheme} ripplesEnabled={ripplesEnabled} />
+            <NavbarMenu darkTheme={darkTheme} fluidEnabled={fluidEnabled} />
         </nav>
     }
 

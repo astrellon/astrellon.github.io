@@ -76,7 +76,7 @@ export interface State
     readonly darkTheme: boolean;
     readonly postsHeight: number;
     readonly isMobile: boolean;
-    readonly ripplesEnabled: boolean;
+    readonly fluidEnabled: boolean;
     readonly documentReady: boolean;
 }
 
@@ -121,9 +121,9 @@ export function setDarkTheme(darkTheme: boolean): Modifier<State>
     return () => { return { darkTheme } }
 }
 
-export function setEnableRipples(ripplesEnabled: boolean): Modifier<State>
+export function setEnabledFluid(fluidEnabled: boolean): Modifier<State>
 {
-    return () => { return { ripplesEnabled } }
+    return () => { return { fluidEnabled } }
 }
 
 export function setDocumentReady(): Modifier<State>

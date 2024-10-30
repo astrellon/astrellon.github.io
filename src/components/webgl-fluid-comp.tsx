@@ -2,6 +2,7 @@ import { ClassComponent, FinishUnmountHandler, vdom } from "simple-tsx-vdom";
 import WebGLFluidEnhanced from "../fluid";
 import { RemoveListener } from "simple-signals";
 import { hoverOutElement, hoverOverElement } from "./signals";
+import "./webgl-fluid-comp.scss";
 
 interface Props
 {
@@ -88,7 +89,7 @@ export default class WebGLFluidComp extends ClassComponent<Props>
             }
         }
 
-        return <div id="renderSurface" class="ripples"></div>
+        return <div id="renderSurface" class='webgl-fluid'></div>
     }
 
     private getPalette = () =>

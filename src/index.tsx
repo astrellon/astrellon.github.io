@@ -1,5 +1,5 @@
 import { vdom, render } from "simple-tsx-vdom";
-import { setSelectedPageId, WindowHistory, State, store, setIsMobile, PageId, setDocumentReady } from "./store";
+import { setSelectedPageId, WindowHistory, State, store, setIsMobile, PageId, setDocumentReady, setDarkTheme, setEnabledFluid } from "./store";
 import { App } from "./components/app";
 import { setInitialState } from './client-store';
 
@@ -9,6 +9,15 @@ const initialState = (globalThis as any).__state as State | undefined;
 if (initialState != undefined)
 {
     store.execute(setInitialState(initialState));
+}
+
+if (window.localStorage.getItem('darkTheme') === '1')
+{
+    store.execute(setDarkTheme(true));
+}
+if (window.localStorage.getItem('fluidEnabled') === '0')
+{
+    store.execute(setEnabledFluid(false));
 }
 
 if (checkIfMobile())
@@ -54,11 +63,11 @@ store.subscribeAny((state) =>
 
 store.subscribe(state => state.darkTheme, (state, darkTheme) =>
 {
-    document.cookie = `darkTheme=${darkTheme}`;
+    window.localStorage.setItem('darkTheme', darkTheme ? '1' : '0');
 });
-store.subscribe(state => state.ripplesEnabled, (state, ripplesEnabled) =>
+store.subscribe(state => state.fluidEnabled, (state, fluidEnabled) =>
 {
-    document.cookie = `ripplesEnabled=${ripplesEnabled}`;
+    window.localStorage.setItem('fluidEnabled', fluidEnabled ? '1' : '0');
 });
 
 window.addEventListener('resize', () =>
@@ -72,7 +81,6 @@ window.addEventListener('resize', () =>
 
 window.addEventListener('popstate', (event) =>
 {
-    console.log(event);
     const stateData: WindowHistory = event.state;
     if (stateData.pageId)
     {

@@ -35,7 +35,7 @@ setStore(new DataStore<State>({
     darkTheme: false,
     postsHeight: 0,
     isMobile: false,
-    ripplesEnabled: true,
+    fluidEnabled: true,
     documentReady: false
 }));
 
