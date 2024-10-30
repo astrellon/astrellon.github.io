@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "start": "parcel --no-cache ./src/index.html",
-    "build": "rm -rf ./docs && parcel build --no-cache --dist-dir ./docs ./src/index.html && cp -r ./src/assets ./docs/assets && cp CNAME ./docs && rm ./docs/*.map"
+    "build": "npm run buildMain && npm run removeMaps",
+    "buildMain": "rm -rf ./docs && parcel build --no-cache --dist-dir ./docs ./src/index.html && cp -r ./src/assets ./docs/assets && cp CNAME ./docs",
+    "removeMaps": "rm ./docs/*.map"
   },
   "author": "",
   "license": "ISC",

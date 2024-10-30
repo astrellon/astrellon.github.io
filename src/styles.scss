@@ -73,7 +73,7 @@ select {
 }
 
 h1,h2,h3 {
-    font-family: sans-serif;
+    font-family: $font-family-sans;
     @include default-text-shadow();
 }
 

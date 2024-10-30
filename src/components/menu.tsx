@@ -11,6 +11,11 @@ export default class Menu extends ClassComponent<Props>
 {
     private showMenu: boolean = false;
 
+    public hasChanged(newProps: Props): boolean
+    {
+        return true;
+    }
+
     public render()
     {
         const classNames = `menu ${this.props.class || ''} ${this.showMenu ? 'active' : ''}`;
