@@ -38,6 +38,40 @@ export const Projects: PostState[] = [
                     "caption": "A later level with more going on.",
                     "fullSizeUrl": "/assets/spacestrife-v0.3-hard.jpg" as Url
                 }],
+                "picturePosition": "right"
+            },
+            {
+                "text": [
+                    "[h3](Godot 3D Pixel Art)",
+                    "An experiment at creating 3D pixel art by combining 2D screen space textures with 3D models for shadows and lighting.",
+                    "Main features:",
+                    "* Built using Godot 4.2",
+                    "* Makes use of regular pixel art creation for creating textures.",
+                    "* Makes use of regular 3D modelling for creating the objects.",
+                    "* Combines these two by effectively using the shape of the 3D objects as a mask onto the textures.",
+                    "* Fairly performant, doesn't require any post processing other than a fairly simple shader.",
+                    "* It does make loose out on some of the pixel perfect aspects of pixel art, as where the textures are applied is somewhat hard to control.",
+                    "* Also getting shadows to look correct with sprites is tricky.",
+                    "* Original source code and assets available on GitHub, along with Windows and Linux builds."
+                ],
+                "links": [{
+                    "url": "https://youtu.be/4EIUvw37D88" as Url,
+                    "icon": "youtube",
+                    "title": "Devlog"
+                }, {
+                    "url": "https://github.com/astrellon/godot-3d-pixel-art/" as Url,
+                    "icon": "github",
+                    "title": "Source code for the experiment."
+                }],
+                "pictures": [{
+                    "url": "/assets/godot_pixelart_small.jpg" as Url,
+                    "caption": "A screenshot of a 3D scene using pixel art.",
+                    "fullSizeUrl": "/assets/godot_pixelart.jpg" as Url
+                }, {
+                    "url": "/assets/godot_pixelart_blender_small.jpg" as Url,
+                    "caption": "The view from 3D using a recreated material to sort of get an idea of the effect whilst modelling.",
+                    "fullSizeUrl": "/assets/godot_pixelart_blender.jpg" as Url
+                }],
                 "picturePosition": "left"
             },
             {
