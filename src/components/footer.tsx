@@ -10,7 +10,7 @@ export class Footer extends ClassComponent<Props>
     public render()
     {
         return <footer class='footer container'>
-            Alan Lawrey 2024
+            Alan Lawrey 2025
         </footer>
     }
 }
