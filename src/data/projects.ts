@@ -21,9 +21,9 @@ export const Projects: PostState[] = [
                     "title": "Source code and link to online interactive version."
                 }],
                 "pictures": [{
-                    "url": "/assets/galaxy_map_screenshot" as Url,
+                    "url": "/assets/galaxy_map_screenshot.png" as Url,
                     "caption": "The galaxy map.",
-                    "fullSizeUrl": "/assets/galaxy_map_screenshot" as Url
+                    "fullSizeUrl": "/assets/galaxy_map_screenshot.png" as Url
                 }],
                 "picturePosition": "left"
             },
