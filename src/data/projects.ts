@@ -6,6 +6,29 @@ export const Projects: PostState[] = [
         "contents": [
             {
                 "text": [
+                    "[h3](Galaxy Map)",
+                    "An interactive galaxy map made with a pixel art style made in Godot 4.4",
+                    "Main features:",
+                    "* SDFs for rendering celestial objects.",
+                    "* Vector graphics for the galaxy layers.",
+                    "* Pixel art sprite sheets for the smaller stars.",
+                    "* Software wireframe rendering.",
+                    "* Full source and web interactive version on GitHub.",
+                ],
+                "links": [{
+                    "url": "https://github.com/astrellon/galaxy-map/" as Url,
+                    "icon": "github",
+                    "title": "Source code and link to online interactive version."
+                }],
+                "pictures": [{
+                    "url": "/assets/galaxy_map_screenshot" as Url,
+                    "caption": "The galaxy map.",
+                    "fullSizeUrl": "/assets/galaxy_map_screenshot" as Url
+                }],
+                "picturePosition": "left"
+            },
+            {
+                "text": [
                     "[h3](Space Strife)",
                     "A chaotic space shooter around defending a planet using tanks!",
                     "Main features:",
