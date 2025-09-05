@@ -9,7 +9,7 @@ export const AboutMe: PostState[] = [
                     "Software developer from Melbourne Australia.",
                     "I'm currently working at [link](Fluent Cargo | https://www.fluentcargo.com/) as a principal software engineer. Primary on data processing and software architecture.",
                     "I've previously worked at [link](migenius | https://www.migenius.com/), [link](Rome2rio | https://rome2rio.com) and [link](Metro Trains Melbourne | https://metrotrains.com.au).",
-                    "You can contact me via [link](email | mailto:alan.lawrey@gmail.com) or find me on [link](Bluesky | https://bsky.app/profile/astrellon.bsky.social), [link](LinkedIn | https://www.linkedin.com/in/alan-lawrey-b7509b21/) or [link](reddit | https://www.reddit.com/user/astrellon3/).",
+                    "You can contact me via [link](email | mailto:alan.lawrey@gmail.com) or find me on [link](Bluesky | https://bsky.app/profile/astrellon.bsky.social), [link](LinkedIn | https://www.linkedin.com/in/alan-lawrey-451431379/) or [link](reddit | https://www.reddit.com/user/astrellon3/).",
                     "These are the things I enjoy working on:",
                     "* Making websites, working on both the frontend and backend.",
                     "* Creating tooling for processing data, both the processes and the UI for controlling those processes.",
