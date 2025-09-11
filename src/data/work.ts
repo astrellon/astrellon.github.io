@@ -5,8 +5,9 @@ export const Work: PostState[] = [
         "pageId": "work" as PageId,
         "contents": [
             {
+                "anchorTag": "fluent-cargo",
                 "text": [
-                    "[post-header](Fluent Cargo | JAN 2020 - PRESENT)",
+                    "[post-header](Fluent Cargo | JAN 2020 - PRESENT | fluent-cargo)",
                     "[link](Fluent Cargo | https://fluentcargo.com) is a multi-modal freight routing solution. ",
                     "My work included:",
                     "* A content server for processing data from multiple data sources into a unified structure that can then be manipulated further manually.",
@@ -31,8 +32,9 @@ export const Work: PostState[] = [
                 "picturePosition": "left"
             },
             {
+                "anchorTag": "metro-trains-melbourne",
                 "text": [
-                    "[post-header](Metro Trains Melbourne | SEP 2018 - NOV 2020)",
+                    "[post-header](Metro Trains Melbourne | SEP 2018 - NOV 2020 | metro-trains-melbourne)",
                     "Metro Trains Melbourne needed a tool for monitoring real time voltages and currents for testing their new trains.",
                     "This work combined hardware installed in the field (created by my co-worker) and a server with a front end (created by me)",
                     "The hardware was made up of an industrial PC with a USB oscilloscope and 4G modem",
@@ -57,8 +59,9 @@ export const Work: PostState[] = [
                 }]
             },
             {
+                "anchorTag": "rome2rio",
                 "text": [
-                    "[post-header](Rome2rio | OCT 2014 - JUL 2018)",
+                    "[post-header](Rome2rio | OCT 2014 - JUL 2018 | rome2rio)",
                     "Rome2rio is a travel search website used for finding and comparing different routes from anywhere in the world. It specialised in ground transport.",
                     "I focused on adding timetables, buying tickets and working on internal tools for updating and creating routes live.",
                     "My work included:",
@@ -78,8 +81,9 @@ export const Work: PostState[] = [
                 "picturePosition": "left"
             },
             {
+                "anchorTag": "migenius",
                 "text": [
-                    "[post-header](miGenius and mental images | JAN 2008 - OCT - 2014)",
+                    "[post-header](miGenius and mental images | JAN 2008 - OCT - 2014 | migenius)",
                     "mental images are a company that specialises in photographic rendering using ray and path tracing software.",
                     "After 3 years the Melbourne office split off to form the company migenius which continued to do the same work and allowed for working on stand alone products.",
                     "Bloom Unit was their first product and combined the ease of using SketchUp's 3d editing with real time photographic images.",

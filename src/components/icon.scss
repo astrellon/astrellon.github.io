@@ -16,7 +16,12 @@
         fill: $colour-darkGrey;
     }
 
-    &.has-stroke {
+    &.link-icon {
+        fill: none;
+        stroke-width: 46px;
+        stroke: $colour-lightGrey;
+    }
+    &:hover.link-icon {
         stroke: $colour-darkGrey;
     }
 
@@ -54,6 +59,13 @@
         }
 
         &.has-stroke {
+            stroke: $colour-lightGrey;
+        }
+
+        &.link-icon {
+            stroke: $colour-darkGrey;
+        }
+        &:hover.link-icon {
             stroke: $colour-lightGrey;
         }
 

@@ -1,4 +1,5 @@
 import { vdom } from "simple-tsx-vdom";
+import Icon from "./icon";
 import "./formatted-text.scss";
 
 const formattingRegex = /(\[([^\]]+)\]\(([^\)]+)\))/;
@@ -48,11 +49,22 @@ export default class FormattedText
                     const period = headerSplit[1].trim();
                     result.push(<div class='post-header'>
                         <h3>{header}</h3> <small>{period}</small>
+                        { headerSplit.length >= 3 && this.createTextLink(headerSplit[2].trim())}
                     </div>);
                 }
                 else if (type === 'strong' || type === 'h1' || type === 'h2' || type === 'h3')
                 {
-                    result.push(vdom(type, {}, value));
+                    if (value.includes(' | '))
+                    {
+                        const linkSplit = value.split(' | ');
+                        result.push(vdom(type, {}, linkSplit[0],
+                            this.createTextLink(linkSplit[1])
+                        ));
+                    }
+                    else
+                    {
+                        result.push(vdom(type, {}, value));
+                    }
                 }
             }
             else
@@ -63,4 +75,12 @@ export default class FormattedText
 
         return result;
     }
+
+    private static createTextLink(anchorTag: string)
+    {
+        return <a href={`#${anchorTag}`} class='text-link'>
+            <Icon icon='link' size={24} />
+        </a>;
+    }
 }
+

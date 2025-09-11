@@ -4,6 +4,7 @@ import { PostPicture } from "./post-picture";
 import PostLink from "./post-link";
 import FormattedText from "./formatted-text";
 import "./post-paragraph.scss";
+import Icon from "./icon";
 
 interface Props
 {
@@ -14,9 +15,15 @@ export class PostParagraph extends ClassComponent<Props>
 {
     public render()
     {
-        const { text, pictures, list, picturePosition, links } = this.props.content;
+        const { text, pictures, list, picturePosition, links, anchorTag } = this.props.content;
 
-        return <div class={`post-paragraph is--${picturePosition || 'right'}`}>
+        const idTag = {};
+        if (anchorTag)
+        {
+            idTag['id'] = anchorTag;
+        }
+
+        return <div {...idTag} class={`post-paragraph is--${picturePosition || 'right'}`}>
 
             { (text || list || links) && <div class='post-paragraph__text-content'>
                 { this.processText() }
@@ -34,7 +41,7 @@ export class PostParagraph extends ClassComponent<Props>
 
     private processText = () =>
     {
-        const { text } = this.props.content;
+        const { text, anchorTag } = this.props.content;
         if (!text)
         {
             return null;
@@ -43,6 +50,7 @@ export class PostParagraph extends ClassComponent<Props>
         const result: any[] = [];
 
         let listChildren: string[] | null = null;
+        let firstChild = true;
         for (const line of text)
         {
             if (line.length === 0)
@@ -57,7 +65,7 @@ export class PostParagraph extends ClassComponent<Props>
                     listChildren = [];
                 }
 
-                listChildren.push(line.substr(1).trimLeft());
+                listChildren.push(line.substring(1).trimStart());
             }
             else
             {
@@ -66,8 +74,11 @@ export class PostParagraph extends ClassComponent<Props>
                     result.push(this.createList(listChildren));
                     listChildren = null;
                 }
+
                 result.push(<div class='post-paragraph__line'>{FormattedText.processText(line)}</div>);
             }
+
+            firstChild = false;
         }
 
         if (listChildren !== null)

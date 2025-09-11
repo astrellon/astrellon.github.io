@@ -5,8 +5,9 @@ export const Projects: PostState[] = [
         "pageId": "projects" as PageId,
         "contents": [
             {
+                "anchorTag": "web-sdf",
                 "text": [
-                    "[h3](Web SDF)",
+                    "[h3](Web SDF | web-sdf)",
                     "A learning project for raymarching SDFs with some very limited editing features.",
                     "The [link](first version | https://alanlawrey.me/web-sdf/canvas-index.html) was written as a CPU only web canvas renderer, which whilst slow it taught me a lot about how raymarching worked.",
                     "The second version was written as a GPU shader and attempted to recreate the CPU version using a virtual machine like stack.",
@@ -32,8 +33,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "right"
             },
             {
+                "anchorTag": "galaxy-map",
                 "text": [
-                    "[h3](Galaxy Map)",
+                    "[h3](Galaxy Map | galaxy-map)",
                     "An interactive galaxy map made with a pixel art style made in Godot 4.4",
                     "Main features:",
                     "* SDFs for rendering celestial objects.",
@@ -55,8 +57,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "left"
             },
             {
+                "anchorTag": "space-strife",
                 "text": [
-                    "[h3](Space Strife)",
+                    "[h3](Space Strife | space-strife)",
                     "A chaotic space shooter around defending a planet using tanks!",
                     "Main features:",
                     "* Alien motherships will be hiding behind gravity sources that you'll have to aim around.",
@@ -91,8 +94,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "right"
             },
             {
+                "anchorTag": "godot-3d-pixel-art",
                 "text": [
-                    "[h3](Godot 3D Pixel Art)",
+                    "[h3](Godot 3D Pixel Art | godot-3d-pixel-art)",
                     "An experiment at creating 3D pixel art by combining 2D screen space textures with 3D models for shadows and lighting.",
                     "Main features:",
                     "* Built using Godot 4.2",
@@ -125,8 +129,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "left"
             },
             {
+                "anchorTag": "lysithea",
                 "text": [
-                    "[h3](Lysithea)",
+                    "[h3](Lysithea | lysithea)",
                     "A scripting language designed to live inside other systems to glue them together",
                     "Main features:",
                     "* Lisp style syntax.",
@@ -159,8 +164,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "right"
             },
             {
+                "anchorTag": "tailspin",
                 "text": [
-                    "[h3](Tailspin)",
+                    "[h3](Tailspin | tailspin)",
                     "A space game about going on an adventure and exploring space with some smart animal companions.",
                     "Main features:",
                     "* Flying your own spaceship from the cockpit.",
@@ -197,8 +203,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "left"
             },
             {
+                "anchorTag": "simple-vdom",
                 "text": [
-                    "[h3](Simple Virtual DOM)",
+                    "[h3](Simple Virtual DOM | simple-vdom)",
                     "I made my own virtual DOM (simple-tsx-vdom) inspired by [link](React | https://reactjs.org/) and [link](Preact | https://preactjs.com/).",
                     "It was created for learning but I wanted to take it to the point where I could build something non-trivial with it so this portfolio is the biggest example of it right now.",
                     "You can find the source for this portfolio page on [link](GitHub | https://github.com/astrellon/simple-portfolio).",
@@ -228,8 +235,9 @@ export const Projects: PostState[] = [
                 }]
             },
             {
+                "anchorTag": "simple-data-store",
                 "text": [
-                    "[h3](Simple Data Store)",
+                    "[h3](Simple Data Store | simple-data-store)",
                     "I like what [link](redux | https://redux.js.org/) and other functional state management libraries have done for UI but I found them too unstructured and too generalised. So I put together my own version that is still general but puts just enough structure to fulfil my needs.",
                     "Unlike simple-tsx-vdom I have used simple-data-store in production to good effect, even without the extra features of browser devtools.",
                     "Main features:",
@@ -253,8 +261,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "left"
             },
             {
+                "anchorTag": "space-doggo",
                 "text": [
-                    "[h3](Space Doggo)",
+                    "[h3](Space Doggo | space-doggo)",
                     "A space adventure/exploration game that I've been working on for a while now.",
                     "The main goal is to explore space and to find things. The scope is deliberately small so that [strong](hopefully) I'll finish it one day.",
                     "Main features:",
@@ -296,8 +305,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "right"
             },
             {
+                "anchorTag": "lua-os",
                 "text": [
-                    "[h3](LOSS: Lua Operating SyStem)",
+                    "[h3](LOSS: Lua Operating SyStem | lua-os)",
                     "A project to create an operating system that's built around using Lua with the intention of being light weight.",
                     "The main use case was for a game where you may want many simple in-game operating systems that look like a *NIX shell but without actually running a VM.",
                     "Main features:",
@@ -320,8 +330,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "left"
             },
             {
+                "anchorTag": "loss-v0",
                 "text": [
-                    "[h3](LOSS v0)",
+                    "[h3](LOSS v0 | loss-v0)",
                     "An earlier attempt at creating an OS for use in a game, specifically for a space game. This was a relatively naive approach that used NLua which is a C# implementation of Lua for use in Unity.",
                     "Main features:",
                     "* Basic shell for running Lua.",
@@ -341,8 +352,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "right"
             },
             {
+                "anchorTag": "unity-voxel",
                 "text": [
-                    "[h3](Unity Voxel Engine)",
+                    "[h3](Unity Voxel Engine | unity-voxel)",
                     "A [strong](small) voxel engine aim at being able to create and edit levels entirely within Unity. It performed well enough for the scale of the levels I wanted to created, however getting the editor tools to behave the way I wanted proved to be the most tricky aspect",
                     "Original intended to be in the style of [link](Might and Magic | https://en.wikipedia.org/wiki/Might_and_Magic) series which is why the original repository is called 'mm'",
                     "Main features:",
@@ -363,8 +375,9 @@ export const Projects: PostState[] = [
                 "picturePosition": "left"
             },
             {
+                "anchorTag": "rpg-game",
                 "text": [
-                    "[h3](RPG Game)",
+                    "[h3](RPG Game | rpg-game)",
                     "A topdown 2D RPG game engine written in C++ built using minimal dependencies for the purpose of learning.",
                     "This is a fairly old project now, but it does represent a lot of learning in terms of C++, integrating a scripting language, handling modding, dealing with complex UI and handling an audio system.",
                     "Main features:",
