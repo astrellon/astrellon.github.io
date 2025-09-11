@@ -6,6 +6,32 @@ export const Projects: PostState[] = [
         "contents": [
             {
                 "text": [
+                    "[h3](Web SDF)",
+                    "A learning project for raymarching SDFs with some very limited editing features.",
+                    "The [link](first version | https://alanlawrey.me/web-sdf/canvas-index.html) was written as a CPU only web canvas renderer, which whilst slow it taught me a lot about how raymarching worked.",
+                    "The second version was written as a GPU shader and attempted to recreate the CPU version using a virtual machine like stack.",
+                    "The third version makes use of creating a shader from the current scene which was dramatically faster and allowed for more complex operations.",
+                    "This taught me a lot about how to use math for creating visual scenes, although I would not say the current editor is anymore more than a toy.",
+                    "Main features:",
+                    "* A very basic scene tree for editing different SDF shapes and operations.",
+                    "* Generates GLSL code from the current scene to be compiled at runtime.",
+                    "* Mostly working mobile version, although it is not as well optimised for it.",
+                    "* Full source on GitHub.",
+                ],
+                "links": [{
+                    "url": "https://github.com/astrellon/web-sdf/" as Url,
+                    "icon": "github",
+                    "title": "Source code and link to online interactive version."
+                }],
+                "pictures": [{
+                    "url": "/assets/web-sdf-thumbnail.jpg" as Url,
+                    "caption": "The editor view with a scene with repeating sphere.",
+                    "fullSizeUrl": "/assets/web-sdf.jpg" as Url
+                }],
+                "picturePosition": "right"
+            },
+            {
+                "text": [
                     "[h3](Galaxy Map)",
                     "An interactive galaxy map made with a pixel art style made in Godot 4.4",
                     "Main features:",

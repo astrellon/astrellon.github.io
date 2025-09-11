@@ -89,7 +89,7 @@ export const Work: PostState[] = [
                     "We also worked on other projects for various clients:",
                     "* Integrating Bloom Unit into Autodesk Revit for Oldcastle.",
                     "* Web visualisation projects for Obayashi Corporation and Shimizu Corporation.",
-                    "* A product visualiser for Takemoto products. [link](Bottle 3d Visualiser | http://www3d1.takemotokk.co.jp/takemoto/?lang=en)",
+                    "* A product visualiser for Takemoto products. [link](Bottle 3d Visualiser | https://www.takemotopkg.com/en/)",
                     "* A product visualiser for Christ Jewellery. [link](Ring Configurator | https://www.christ.de/)"
                 ],
                 "pictures": [{
