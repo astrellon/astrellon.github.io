@@ -11,7 +11,7 @@ export const Projects: PostState[] = [
                     "A learning project for raymarching SDFs with some very limited editing features.",
                     "The [link](first version | https://alanlawrey.me/web-sdf/canvas-index.html) was written as a CPU only web canvas renderer, which whilst slow it taught me a lot about how raymarching worked.",
                     "The second version was written as a GPU shader and attempted to recreate the CPU version using a virtual machine like stack.",
-                    "The [link](third version | https://alanlawrey.me/web-sdf) makes use of creating a shader from the current scene which was dramatically faster and allowed for more complex operations.",
+                    "The [link](current version | https://alanlawrey.me/web-sdf) makes use of creating a shader from the current scene which was dramatically faster and allowed for more complex operations.",
                     "This taught me a lot about how to use math for creating visual scenes, although I would not say the current editor is anymore more than a toy.",
                     "Main features:",
                     "* A very basic scene tree for editing different SDF shapes and operations.",
@@ -37,6 +37,7 @@ export const Projects: PostState[] = [
                 "text": [
                     "[h3](Galaxy Map | galaxy-map)",
                     "An interactive galaxy map made with a pixel art style made in Godot 4.4",
+                    "This is a standalone piece and was made just for the fun of it.",
                     "Main features:",
                     "* SDFs for rendering celestial objects.",
                     "* Vector graphics for the galaxy layers.",
