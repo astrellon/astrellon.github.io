@@ -24,6 +24,10 @@ export const Projects: PostState[] = [
                     "url": "https://github.com/astrellon/web-sdf/" as Url,
                     "icon": "github",
                     "title": "Source code and link to online interactive version."
+                }, {
+                    "url": "https://www.youtube.com/watch?v=Pn4Dm88hx30" as Url,
+                    "icon": "youtube",
+                    "title": "Devlog"
                 }],
                 "pictures": [{
                     "url": "/assets/web-sdf-thumbnail.jpg" as Url,
@@ -49,6 +53,10 @@ export const Projects: PostState[] = [
                     "url": "https://github.com/astrellon/galaxy-map/" as Url,
                     "icon": "github",
                     "title": "Source code and link to online interactive version."
+                }, {
+                    "url": "https://www.youtube.com/watch?v=Pn4Dm88hx30" as Url,
+                    "icon": "youtube",
+                    "title": "Devlog"
                 }],
                 "pictures": [{
                     "url": "/assets/galaxy_map_screenshot.png" as Url,
@@ -73,7 +81,7 @@ export const Projects: PostState[] = [
                 "links": [{
                     "url": "https://www.youtube.com/playlist?list=PLTf8ZRLo3EcM2af7AtxFiqQySnzFKEprt" as Url,
                     "icon": "youtube",
-                    "title": "Devloga Playlist"
+                    "title": "Devlog Playlist"
                 }, {
                     "url": "https://astrellon.itch.io/space-strife" as Url,
                     "icon": "itchio",
