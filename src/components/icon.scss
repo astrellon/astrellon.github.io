@@ -17,11 +17,14 @@
     }
 
     &.link-icon {
-        fill: none;
         stroke-width: 46px;
+    }
+
+    &.has-stroke {
+        fill: none;
         stroke: $colour-lightGrey;
     }
-    &:hover.link-icon {
+    &:hover.has-stroke {
         stroke: $colour-darkGrey;
     }
 
