@@ -71,6 +71,7 @@ export const Projects: PostState[] = [
                     "[h3](Space Strife | space-strife)",
                     "A chaotic space shooter around defending a planet using tanks!",
                     "Main features:",
+                    "* Open source, all assets and code available on [link](GitHub | https://github.com/astrellon/space-strife/).",
                     "* Alien motherships will be hiding behind gravity sources that you'll have to aim around.",
                     "* Supports bullet hell level of projectiles and runs well on lower end hardware.",
                     "* Defeating aliens gives you the money needed to buy more tanks or upgrade existing ones.",
@@ -86,6 +87,10 @@ export const Projects: PostState[] = [
                     "url": "https://astrellon.itch.io/space-strife" as Url,
                     "icon": "itchio",
                     "title": "itch.io page for downloading the game."
+                }, {
+                    "url": "https://github.com/astrellon/space-strife" as Url,
+                    "icon": "github",
+                    "title": "Github Repository"
                 }],
                 "pictures": [{
                     "url": "/assets/spacestrife-v0.3-easy_small.jpg" as Url,
