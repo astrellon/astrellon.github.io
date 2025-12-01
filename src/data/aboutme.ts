@@ -15,6 +15,7 @@ export const AboutMe: PostState[] = [
                     "* Creating tooling for processing data, both the processes and the UI for controlling those processes.",
                     "* Mentoring in software development.",
                     "* Creating small games. [link](I have a small itch.io page. | https://astrellon.itch.io/)",
+                    "* Creating graphics using shaders, be they procedural textures or raymarched SDFs.",
                     "* Artwork [link](Instagram | https://www.instagram.com/astrellon_art/), [link](Redbubble | https://astrellon.redbubble.com), [link](TeePublic | https://teepublic.com/user/astrellonart) and [link](Society6 | https://society6.com/astrellon_art)."
                 ],
                 "pictures": [{
