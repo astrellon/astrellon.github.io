@@ -40,8 +40,9 @@ export const Projects: PostState[] = [
                 "anchorTag": "galaxy-map",
                 "text": [
                     "[h3](Galaxy Map | galaxy-map)",
-                    "An interactive galaxy map made with a pixel art style made in Godot 4.4",
+                    "An interactive galaxy map made with a pixel art style made in Godot 4.5",
                     "This is a standalone piece and was made just for the fun of it.",
+                    "An online version is available on both [link](GitHub | http://alanlawrey.me/galaxy-map/) and [link](itch.io | https://astrellon.itch.io/galaxy-map).",
                     "Main features:",
                     "* SDFs for rendering celestial objects.",
                     "* Vector graphics for the galaxy layers.",
@@ -57,6 +58,10 @@ export const Projects: PostState[] = [
                     "url": "https://www.youtube.com/watch?v=Pn4Dm88hx30" as Url,
                     "icon": "youtube",
                     "title": "Devlog"
+                }, {
+                    "url": "https://astrellon.itch.io/galaxy-map" as Url,
+                    "icon": "itchio",
+                    "title": "itch.io page for trying out the map."
                 }],
                 "pictures": [{
                     "url": "/assets/galaxy_map_screenshot.png" as Url,
@@ -70,6 +75,8 @@ export const Projects: PostState[] = [
                 "text": [
                     "[h3](Space Strife | space-strife)",
                     "A chaotic space shooter around defending a planet using tanks!",
+                    "Available for download for Windows, macOS and Linux, as well as an online version can be found at [link](itch.io | https://astrellon.itch.io/space-strife)",
+                    "",
                     "Main features:",
                     "* Open source, all assets and code available on [link](GitHub | https://github.com/astrellon/space-strife/).",
                     "* Alien motherships will be hiding behind gravity sources that you'll have to aim around.",
