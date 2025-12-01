@@ -14,7 +14,8 @@ export const Work: PostState[] = [
                     "* A main server for using the processed data for routing and cataloging relationships between the data.",
                     "* A frontend for manipulating the data on in the content server.",
                     "* Integrate multiple different endpoints for either live data or storing a local copy.",
-                    "* Hosting on AWS using EC2, load balancers, S3 and CodeBuild."
+                    "* Hosting on AWS using EC2, load balancers, S3 and CodeBuild.",
+                    "* Creating a custom [link](ECS | https://en.wikipedia.org/wiki/Entity_component_system) that has allowed quickly integrating new types of data into our system."
                 ],
                 "pictures": [{
                     "url": "/assets/fluentCargo_routes_small.jpg" as Url,
