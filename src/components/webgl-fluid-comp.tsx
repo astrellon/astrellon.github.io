@@ -32,7 +32,15 @@ export default class WebGLFluidComp extends ClassComponent<Props>
 
         if (this.rootNode)
         {
-            this.fluid = new WebGLFluidEnhanced(this.rootNode);
+            try
+            {
+                this.fluid = new WebGLFluidEnhanced(this.rootNode);
+            }
+            catch (err)
+            {
+                console.error('Error creating fluid sim:', err);
+                return;
+            }
 
             const colorPalette = this.getPalette();
             this.fluid.setConfig({
