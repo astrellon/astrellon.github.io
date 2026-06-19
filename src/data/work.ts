@@ -7,7 +7,7 @@ export const Work: PostState[] = [
             {
                 "anchorTag": "fluent-cargo",
                 "text": [
-                    "[post-header](Fluent Cargo | JAN 2020 - PRESENT | fluent-cargo)",
+                    "[post-header](Fluent Cargo | JAN 2020 - JUN 2026 | fluent-cargo)",
                     "[link](Fluent Cargo | https://fluentcargo.com) is a multi-modal freight routing solution. ",
                     "My work included:",
                     "* A content server for processing data from multiple data sources into a unified structure that can then be manipulated further manually.",
